@@ -13,12 +13,12 @@
 3. 大任务完成后，更新 `AGENTS.md` 文件。
 
 ## 大任务里程碑状态
-- [ ] **里程碑 1：项目初始化与核心架构** (Step 1-5)
-  - [ ] Step 1: 项目初始化
-  - [ ] Step 2: 类型层
-  - [ ] Step 3: 测验引擎
-  - [ ] Step 4: 路由与页面骨架
-  - [ ] Step 5: 状态管理 composable
+- [x] **里程碑 1：项目初始化与核心架构** (Step 1-5)
+  - [x] Step 1: 项目初始化
+  - [x] Step 2: 类型层
+  - [x] Step 3: 测验引擎
+  - [x] Step 4: 路由与页面骨架
+  - [x] Step 5: 状态管理 composable
 - [ ] **里程碑 2：UI 视图与交互实现** (Step 6-8)
   - [ ] Step 6: 首页（HomeView + QuizCard）
   - [ ] Step 7: 答题页（QuizView + Question + ProgressBar）
@@ -29,3 +29,7 @@
 
 ## 工作日志
 - **2026-04-13**: 项目启动，初始化 `TODO.md` 和 `AGENTS.md`，明确了 AI Agent 开发规范和 10 步执行计划，正式准备进入开发阶段。
+- **2026-04-13**: 完成 Step 1 项目初始化。创建了 `package.json`, `vite.config.ts`, `tsconfig.json`, `tsconfig.node.json`, `uno.config.ts`, `index.html`, `src/main.ts`, `src/App.vue` 等核心配置文件。
+- **2026-04-13**: 完成 Step 2 类型层。根据 PRD 3.2 和 3.3，创建了 `src/core/types.ts`, `src/core/schema.ts`, 并统一在 `src/core/index.ts` 中导出，同时通过了 `vue-tsc` 类型检查。
+- **2026-04-13**: 完成 Step 3 测验引擎。根据 PRD Step 3 和 Chapter 3.4，创建了 `src/core/engine.ts` 并实现了 QuizEngine 类，包含加载题库、记录答案和计算结果（dimension-max、total-score 等策略）功能，同时通过了 `vue-tsc` 类型检查。
+- **2026-04-13**: 完成 Step 5 状态管理 composable。根据 PRD Step 5，创建了 `src/composables/useQuizState.ts` 并实现了答题状态管理和控制逻辑，同时通过了 `vue-tsc` 类型检查。
