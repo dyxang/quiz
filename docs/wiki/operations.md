@@ -14,7 +14,7 @@ pnpm install
 pnpm dev
 ```
 
-核心脚本定义见 [package.json](file:///workspace/package.json#L6-L11)。
+核心脚本定义见 [package.json](./package.json#L6-L11)。
 
 ## 构建产物
 
@@ -50,19 +50,19 @@ pnpm deploy
 
 常见注意点：
 
-- 使用 GitHub Pages “项目页”时，建议在 [vite.config.ts](file:///workspace/vite.config.ts) 增加 `base: '/<repo>/'`，以保证静态资源路径正确。
+- 使用 GitHub Pages “项目页”时，建议在 [vite.config.ts](./vite.config.ts) 增加 `base: '/<repo>/'`，以保证静态资源路径正确。
 
 ## 运行时存储（localStorage）
 
-- 主题：`quizlight-theme`（见 [useTheme.ts](file:///workspace/src/composables/useTheme.ts#L3-L35)）
-- 语言：`quizlight-locale`（见 [useI18n.ts](file:///workspace/src/composables/useI18n.ts#L78-L97)）
-- 作答记录：`quizlight-<quizId>`（见 [useQuizState.saveProgress](file:///workspace/src/composables/useQuizState.ts#L115-L121)、[ResultView.vue](file:///workspace/src/views/ResultView.vue#L55-L63)）
+- 主题：`quizlight-theme`（见 [useTheme.ts](./src/composables/useTheme.ts#L3-L35)）
+- 语言：`quizlight-locale`（见 [useI18n.ts](./src/composables/useI18n.ts#L78-L97)）
+- 作答记录：`quizlight-<quizId>`（见 [useQuizState.saveProgress](./src/composables/useQuizState.ts#L115-L121)、[ResultView.vue](./src/views/ResultView.vue#L55-L63)）
 
 ## 测试
 
 仓库包含 Vitest 测试用例（当前主要用于验证 PWA 已移除）：
 
-- [pwa-removal.test.ts](file:///workspace/tests/pwa-removal.test.ts)
+- [pwa-removal.test.ts](./tests/pwa-removal.test.ts)
 
 如需补充测试建议：
 

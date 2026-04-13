@@ -1,8 +1,8 @@
 # 题库 Schema（JSON）
 
-题库文件放置在 [quizzes/](file:///workspace/quizzes) 目录，应用运行时自动扫描 `*.json` 并通过 [validateQuiz](file:///workspace/src/core/schema.ts#L169-L190) 做校验。
+题库文件放置在 [quizzes/](./quizzes) 目录，应用运行时自动扫描 `*.json` 并通过 [validateQuiz](./src/core/schema.ts#L169-L190) 做校验。
 
-TypeScript 领域模型见 [QuizSchema](file:///workspace/src/core/types.ts#L100-L134)。
+TypeScript 领域模型见 [QuizSchema](./src/core/types.ts#L100-L134)。
 
 ## 顶层字段（QuizSchema）
 
@@ -22,7 +22,7 @@ TypeScript 领域模型见 [QuizSchema](file:///workspace/src/core/types.ts#L100
 
 ## Question（题目）
 
-定义见 [Question](file:///workspace/src/core/types.ts#L32-L48)。
+定义见 [Question](./src/core/types.ts#L32-L48)。
 
 - `id`: string（唯一）
 - `text`: string
@@ -36,12 +36,12 @@ TypeScript 领域模型见 [QuizSchema](file:///workspace/src/core/types.ts#L100
 
 `scores` 是一个“维度ID → 分数”的增量映射，最终会在引擎中汇总为维度总分：
 
-- 汇总逻辑：[accumulateScores](file:///workspace/src/core/engine.ts#L160-L181)
+- 汇总逻辑：[accumulateScores](./src/core/engine.ts#L160-L181)
 - 维度对立（正反向）：由 `dimensions[].opposite` 指定
 
 ## Dimension（维度）
 
-定义见 [Dimension](file:///workspace/src/core/types.ts#L62-L72)。
+定义见 [Dimension](./src/core/types.ts#L62-L72)。
 
 - `id`: string（维度正向标识，比如 `E`、`N`）
 - `opposite`: string（维度反向标识，比如 `I`、`S`）
@@ -49,11 +49,11 @@ TypeScript 领域模型见 [QuizSchema](file:///workspace/src/core/types.ts#L100
 
 引擎的 `dimension-max` 会按 `dimensions` 的顺序拼接赢家字符生成 `resultId`：
 
-- 参考：[calculateDimensionMax](file:///workspace/src/core/engine.ts#L183-L227)
+- 参考：[calculateDimensionMax](./src/core/engine.ts#L183-L227)
 
 ## QuizResultDef（结果）
 
-定义见 [QuizResultDef](file:///workspace/src/core/types.ts#L82-L98)。
+定义见 [QuizResultDef](./src/core/types.ts#L82-L98)。
 
 - `id`: string（建议与 `dimension-max` 拼接出来的 `resultId` 精确一致，以获得最快匹配）
 - `name`, `emoji`, `description`, `advice`: string
@@ -68,5 +68,5 @@ TypeScript 领域模型见 [QuizSchema](file:///workspace/src/core/types.ts#L100
 - `matchRule.dimension` 会按 `dimensions[].id` 查找维度；建议填写维度正向 `id`（而不是 opposite）
 - `matchRule.value` 应该是该维度在 `resultId` 中可能出现的字符（即 `dimension.id` 或 `dimension.opposite`）
 
-示例题库见 [sample-test.json](file:///workspace/quizzes/sample-test.json)。
+示例题库见 [sample-test.json](./quizzes/sample-test.json)。
 
