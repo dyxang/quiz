@@ -1,11 +1,11 @@
 # QuizLight — AI Agent 开发规格书
 
-> **版本**：v2.0 | **阶段**：MVP (v0.1) | **最后更新**：2026-04-12
+> **版本**：v2.1 | **阶段**：MVP (v0.1) + P2 进阶功能（已完成） | **最后更新**：2026-04-13
 >
 > 本文档是 QuizLight 的完整开发规格书，AI Agent 可直接依据本文档完成全部 MVP 开发工作。
 
 
-> 版本：v0.1 MVP | 最后更新：2026-04-12
+> 版本：v0.1 MVP | 最后更新：2026-04-13
 
 ---
 
@@ -33,6 +33,10 @@
 - 结果展示：结果标签、分数条、文字描述
 - 页面：测试列表页、答题页、结果页
 - **进度保存 (localStorage)**：答题中途退出后可恢复进度
+- **深色模式**：跟随系统偏好或手动切换，基于 CSS 变量实现主题切换
+- **多语言 (i18n)**：支持中英文界面切换，预留扩展其他语言的架构
+- **PWA 离线支持**：通过 Service Worker 实现离线访问与缓存策略
+- **插件扩展系统**：提供标准插件 API，支持自定义渲染与计分策略扩展
 
 ### MVP 不包含的功能
 
@@ -41,8 +45,6 @@
 - 雷达图（P1 阶段）
 - 海报生成（P1 阶段）
 - 量表题 scale 题型（P1 阶段）
-- PWA 离线支持（P2 阶段）
-- 深色模式（P2 阶段）
 
 ---
 
@@ -80,7 +82,10 @@ QuizLight 是一个**开源、纯前端、轻量化测评引擎**。
 | 路由 | Vue Router 4 | MVP | 三页路由（列表页、答题页、结果页） |
 | 样式 | UnoCSS | MVP | 原子化 CSS，体积小 |
 | 状态管理 | Vue composable (`useQuizState.ts`) | MVP | 轻量，避免引入 Pinia |
+| 多语言 | 自研 composable (`useI18n.ts`) | P2 | 轻量字典 + localStorage 持久化 |
+| 主题 | CSS 变量 + composable (`useTheme.ts`) | P2 | 支持系统偏好与手动切换，localStorage 持久化 |
 | Schema 校验 | Zod | MVP | 运行时校验 Quiz JSON 合法性 |
+| PWA | vite-plugin-pwa + workbox | P2 | Service Worker 离线缓存与更新提示 |
 | 包管理 | pnpm | MVP | 高效磁盘利用 |
 | 雷达图 | 自研 SVG 组件 | P1 | MVP 不实现 |
 | 海报生成 | Canvas 手绘 | P1 | MVP 不实现 |
@@ -1689,13 +1694,18 @@ quizlight/
 │   │   ├── types.ts             # 所有 TypeScript 类型定义
 │   │   ├── schema.ts            # Zod schema 校验
 │   │   ├── engine.ts            # QuizEngine 类实现
+│   │   ├── plugins.ts           # 插件注册表与内置插件
 │   │   └── index.ts             # 统一导出
 │   ├── composables/             # Vue composables（状态管理）
-│   │   └── useQuizState.ts      # 答题状态管理
+│   │   ├── useQuizState.ts      # 答题状态管理
+│   │   ├── useI18n.ts           # 多语言状态管理
+│   │   └── useTheme.ts          # 深浅主题状态管理
 │   ├── components/              # Vue 组件
 │   │   ├── QuizCard.vue         # 测试列表卡片
 │   │   ├── Question.vue         # 题目渲染器
 │   │   ├── ProgressBar.vue      # 答题进度条
+│   │   ├── LanguageToggle.vue   # 语言切换按钮
+│   │   ├── ThemeToggle.vue      # 主题切换按钮
 │   │   ├── ScoreBar.vue         # 维度分数条
 │   │   └── ResultCard.vue       # 结果展示卡片
 │   ├── views/                   # 页面视图
@@ -1722,23 +1732,28 @@ quizlight/
 | `src/core/types.ts` | 定义 `QuizSchema`、`Question`、`Dimension`、`QuizResult` 等所有 TypeScript 类型 |
 | `src/core/schema.ts` | 用 Zod 实现 Quiz JSON 的运行时校验，确保题库数据格式正确 |
 | `src/core/engine.ts` | `QuizEngine` 类：加载题库、记录答案、按维度计分并计算最终结果 |
+| `src/core/plugins.ts` | 插件注册表与插件接口集成入口，统一管理插件加载与默认插件 |
 | `src/core/index.ts` | 统一导出 core 模块的所有类型和引擎，供外部模块引用 |
 | `src/composables/useQuizState.ts` | 管理答题状态：当前题目索引、用户答案收集、结果计算与缓存 |
+| `src/composables/useI18n.ts` | 管理当前语言与翻译函数 `t()`，并将用户选择持久化到 localStorage |
+| `src/composables/useTheme.ts` | 管理深浅主题状态（跟随系统或手动切换），并将用户选择持久化到 localStorage |
 | `src/components/QuizCard.vue` | 首页测试卡片，展示测试标题、描述和题目数量 |
 | `src/components/Question.vue` | 渲染单道题目（单选/多选/图片题），通过 `v-model` 向外传递用户选择 |
 | `src/components/ProgressBar.vue` | 顶部进度条，显示当前题号与总题数，提供答题进度可视化 |
+| `src/components/LanguageToggle.vue` | 语言切换组件，供各页面头部使用 |
+| `src/components/ThemeToggle.vue` | 主题切换组件，供各页面头部使用 |
 | `src/components/ScoreBar.vue` | 结果页维度分数条，水平条形图展示各维度得分百分比 |
 | `src/components/ResultCard.vue` | 结果展示卡片，包含类型标签、描述、维度分数条和建议 |
 | `src/views/HomeView.vue` | 测试列表页，扫描 `quizzes/` 目录展示所有可用测试 |
 | `src/views/QuizView.vue` | 答题页，一题一页模式，含进度条、题目渲染和翻页控制 |
 | `src/views/ResultView.vue` | 结果页，展示测试结果、维度分数条和操作按钮 |
-| `src/App.vue` | 根组件，包含 `<router-view>` 和全局布局结构 |
+| `src/App.vue` | 根组件，包含 `<router-view>`、全局布局结构与 PWA 更新提示 |
 | `src/main.ts` | 创建 Vue 应用实例，挂载路由插件并渲染到 DOM |
 | `src/router.ts` | 定义 `/`、`/quiz/:id`、`/result/:id` 三条路由规则 |
 | `quizzes/sample-test.json` | 示例测试数据（28 题，16 种结果类型） |
 | `index.html` | HTML 入口文件，挂载 Vue 应用根节点 |
 | `package.json` | 项目依赖配置（Vue 3、Vue Router、Zod、UnoCSS 等） |
-| `vite.config.ts` | Vite 构建配置，包含 UnoCSS 插件和别名设置 |
+| `vite.config.ts` | Vite 构建配置，包含 UnoCSS 与 PWA 插件配置 |
 | `tsconfig.json` | TypeScript 编译配置，启用严格模式和路径别名 |
 | `uno.config.ts` | UnoCSS 原子化 CSS 配置，定义主题色和预设规则 |
 | `LICENSE` | MIT 开源许可证文件 |

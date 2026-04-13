@@ -1,4 +1,4 @@
-# QuizLight MVP 任务清单
+# QuizLight 任务清单
 
 - [x] Step 1: 项目初始化
 - [x] Step 2: 类型层
