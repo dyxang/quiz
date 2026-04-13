@@ -66,3 +66,6 @@
   - 修复黑夜模式下选择题和主操作按钮字体颜色不自适应（看不清字）的问题。
   - 扩展 `themes.ts` 与 `uno.config.ts` 中的 Design Token（如 `bg-pattern`, `card-shadow`, `font-heading`）。
   - 新增 3 套极具特色与差异化的默认主题（新粗野主义、极简留白、拟物复古）。
+- **2026-04-13**: 执行项目清理与提交。
+  - 运行 `pnpm build` 和 `git gc`。
+  - 提交更新：`feat(theme): extend theme tokens and add Notion, Dracula, Github themes`。

@@ -1,13 +1,17 @@
 /* src/App.vue */
 <template>
-  <GlobalHeader />
-  <main class="min-h-screen">
-    <router-view />
-  </main>
+  <div class="flex flex-col min-h-screen">
+    <GlobalHeader />
+    <main class="flex-1">
+      <router-view />
+    </main>
+    <GlobalFooter />
+  </div>
 </template>
 
 <script setup lang="ts">
 import GlobalHeader from '@/components/GlobalHeader.vue'
+import GlobalFooter from '@/components/GlobalFooter.vue'
 </script>
 
 <style>
@@ -39,6 +43,13 @@ import GlobalHeader from '@/components/GlobalHeader.vue'
   --btn-shadow: var(--shadow-sm);
   --card-shadow: var(--shadow-md);
   --font-heading: inherit;
+
+  /* New Tokens */
+  --logo-text: var(--fg);
+  --logo-font: var(--font-display);
+  --footer-text: rgb(var(--c-muted));
+  --progress-bg: rgb(var(--c-primary));
+  --progress-animation: none;
 
   /* Theme Colors */
   --c-primary: 99, 102, 241; /* #6366f1 */
@@ -147,6 +158,27 @@ h1, h2, h3, h4, h5, h6 {
 @supports (padding-bottom: env(safe-area-inset-bottom)) {
   .fixed.bottom-0 {
     padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+  }
+}
+
+@keyframes progress-wave {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 28px 0;
+  }
+}
+
+@keyframes progress-rainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 </style>
