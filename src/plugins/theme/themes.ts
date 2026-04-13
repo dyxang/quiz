@@ -1,82 +1,106 @@
 import { ThemeDefinition } from './index'
 
-export const themePlainDraft: ThemeDefinition = {
-  id: 'plain-draft',
-  name: '无印草稿纸',
+export const themeNeoBrutalism: ThemeDefinition = {
+  id: 'neo-brutalism',
+  name: '新粗野主义',
   tokens: {
     light: {
-      'c-primary': '71, 85, 105', // slate-600
-      'c-primary-light': '100, 116, 139', // slate-500
-      'c-primary-dark': '51, 65, 85', // slate-700
-      'c-muted': '203, 213, 225', // slate-300
-      'bg': '#ffffff',
-      'fg': '#0f172a', // slate-900
-      'border': '#f1f5f9', // slate-100 (very subtle)
+      'c-primary': '255, 90, 95', // 艳红色
+      'c-primary-light': '255, 120, 125',
+      'c-primary-dark': '230, 60, 65',
+      'c-muted': '156, 163, 175',
+      'bg': '#fcf9f2', // 暖白纸张色
+      'fg': '#1a1a1a',
+      'border': '#1a1a1a', // 纯黑粗边框
       'radius': '0px',
+      'bg-pattern': 'radial-gradient(#1a1a1a 1px, transparent 1px)',
+      'card-shadow': '4px 4px 0px 0px rgba(26, 26, 26, 1)', // 硬边阴影
+      'btn-shadow': '2px 2px 0px 0px rgba(26, 26, 26, 1)',
+      'font-heading': '"Space Mono", monospace, sans-serif'
     },
     dark: {
-      'c-primary': '148, 163, 184', // slate-400
-      'c-primary-light': '203, 213, 225', // slate-300
-      'c-primary-dark': '100, 116, 139', // slate-500
-      'c-muted': '71, 85, 105', // slate-600
-      'bg': '#0f172a',
-      'fg': '#f8fafc',
-      'border': '#1e293b', // slate-800
+      'c-primary': '0, 255, 170', // 荧光绿
+      'c-primary-light': '50, 255, 190',
+      'c-primary-dark': '0, 200, 130',
+      'c-muted': '107, 114, 128',
+      'bg': '#1a1a1a',
+      'fg': '#fcf9f2',
+      'border': '#fcf9f2',
       'radius': '0px',
+      'bg-pattern': 'radial-gradient(#fcf9f2 1px, transparent 1px)',
+      'card-shadow': '4px 4px 0px 0px rgba(252, 249, 242, 1)',
+      'btn-shadow': '2px 2px 0px 0px rgba(252, 249, 242, 1)',
+      'font-heading': '"Space Mono", monospace, sans-serif'
     }
   }
 }
 
-export const themeGraphiteCalm: ThemeDefinition = {
-  id: 'graphite-calm',
-  name: '自然石墨',
+export const themeMinimalistSpace: ThemeDefinition = {
+  id: 'minimalist-space',
+  name: '极简留白',
   tokens: {
     light: {
-      'c-primary': '55, 65, 81', // gray-700
-      'c-primary-light': '75, 85, 99', // gray-600
-      'c-primary-dark': '31, 41, 55', // gray-800
-      'c-muted': '156, 163, 175', // gray-400
-      'bg': '#f9fafb', // gray-50
-      'fg': '#111827', // gray-900
-      'border': '#e5e7eb', // gray-200
-      'radius': '0.375rem', // sm
+      'c-primary': '17, 24, 39', // 近黑
+      'c-primary-light': '55, 65, 81',
+      'c-primary-dark': '0, 0, 0',
+      'c-muted': '209, 213, 219',
+      'bg': '#ffffff', // 纯白
+      'fg': '#111827',
+      'border': '#f3f4f6', // 极淡的边框
+      'radius': '1.5rem', // 大圆角
+      'bg-pattern': 'none',
+      'card-shadow': '0 20px 40px -10px rgb(0 0 0 / 0.05)', // 柔和的大阴影
+      'btn-shadow': 'none',
+      'font-heading': 'system-ui, -apple-system, sans-serif'
     },
     dark: {
-      'c-primary': '156, 163, 175', // gray-400
-      'c-primary-light': '209, 213, 219', // gray-300
-      'c-primary-dark': '107, 114, 128', // gray-500
-      'c-muted': '55, 65, 81', // gray-700
-      'bg': '#111827', // gray-900
-      'fg': '#f9fafb', // gray-50
-      'border': '#374151', // gray-700
-      'radius': '0.375rem',
+      'c-primary': '249, 250, 251', // 近白
+      'c-primary-light': '255, 255, 255',
+      'c-primary-dark': '229, 231, 235',
+      'c-muted': '75, 85, 99',
+      'bg': '#030712', // 极黑
+      'fg': '#f9fafb',
+      'border': '#1f2937',
+      'radius': '1.5rem',
+      'bg-pattern': 'none',
+      'card-shadow': '0 20px 40px -10px rgb(0 0 0 / 0.5)',
+      'btn-shadow': 'none',
+      'font-heading': 'system-ui, -apple-system, sans-serif'
     }
   }
 }
 
-export const themeMonochromeSharp: ThemeDefinition = {
-  id: 'monochrome-sharp',
-  name: '黑白硬边',
+export const themeRetroMac: ThemeDefinition = {
+  id: 'retro-mac',
+  name: '拟物复古',
   tokens: {
     light: {
-      'c-primary': '0, 0, 0', // black
-      'c-primary-light': '64, 64, 64', // neutral-700
-      'c-primary-dark': '0, 0, 0', // black
-      'c-muted': '163, 163, 163', // neutral-400
-      'bg': '#ffffff', // white
-      'fg': '#000000', // black
-      'border': '#000000', // black
-      'radius': '0px',
+      'c-primary': '0, 0, 255', // 经典蓝
+      'c-primary-light': '50, 50, 255',
+      'c-primary-dark': '0, 0, 200',
+      'c-muted': '153, 153, 153',
+      'bg': '#e5e5e5', // 经典灰背景
+      'fg': '#000000',
+      'border': '#808080', // 经典灰边框
+      'radius': '2px', // 微小圆角
+      'bg-pattern': 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.05) 2px, rgba(0,0,0,0.05) 4px)', // 扫描线纹理
+      'card-shadow': 'inset -1px -1px #0a0a0a, inset 1px 1px #ffffff, inset -2px -2px #808080, inset 2px 2px #dfdfdf', // 经典 3D 边框
+      'btn-shadow': 'inset -1px -1px #0a0a0a, inset 1px 1px #ffffff, inset -2px -2px #808080, inset 2px 2px #dfdfdf',
+      'font-heading': '"Courier New", Courier, monospace'
     },
     dark: {
-      'c-primary': '255, 255, 255', // white
-      'c-primary-light': '212, 212, 212', // neutral-300
-      'c-primary-dark': '255, 255, 255', // white
-      'c-muted': '82, 82, 82', // neutral-600
-      'bg': '#000000', // black
-      'fg': '#ffffff', // white
-      'border': '#ffffff', // white
-      'radius': '0px',
+      'c-primary': '255, 165, 0', // 琥珀色
+      'c-primary-light': '255, 185, 50',
+      'c-primary-dark': '200, 130, 0',
+      'c-muted': '102, 102, 102',
+      'bg': '#1a1a1a', // 深灰底
+      'fg': '#00ff00', // 终端绿
+      'border': '#00ff00',
+      'radius': '2px',
+      'bg-pattern': 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,0,0.05) 2px, rgba(0,255,0,0.05) 4px)',
+      'card-shadow': 'inset -1px -1px #000000, inset 1px 1px #333333, inset -2px -2px #111111, inset 2px 2px #222222',
+      'btn-shadow': 'inset -1px -1px #000000, inset 1px 1px #333333, inset -2px -2px #111111, inset 2px 2px #222222',
+      'font-heading': '"Courier New", Courier, monospace'
     }
   }
 }

@@ -8,7 +8,7 @@ const { t } = useI18n()
 
 <template>
   <button
-    class="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors"
+    class="p-2 rounded-lg bg-transparent text-[rgb(var(--c-gray-600))] hover:bg-[rgb(var(--c-gray-100))] transition-colors flex items-center justify-center"
     @click="toggleTheme"
     :title="t('theme.toggle')"
   >

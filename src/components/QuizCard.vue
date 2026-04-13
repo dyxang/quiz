@@ -25,8 +25,9 @@ function handleClick() {
 
 <template>
   <div
-    class="bg-white rounded-xl shadow-md p-5 cursor-pointer
-           hover:-translate-y-1 hover:shadow-lg transition-all duration-200"
+    class="bg-[rgb(var(--bg))] rounded-[var(--radius)] p-5 cursor-pointer
+           border border-[rgb(var(--border))] transition-all duration-200"
+    :style="{ boxShadow: 'var(--card-shadow)' }"
     @click="handleClick"
   >
     <!-- 标题 -->

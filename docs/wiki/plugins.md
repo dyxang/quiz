@@ -4,7 +4,7 @@ QuizLight 的插件系统目标是：在不修改核心引擎与默认 UI 的情
 
 ## 1. 插件协议（QuizPlugin）
 
-定义见 [QuizPlugin](file:///workspace/src/core/types.ts#L206-L228)：
+定义见 [QuizPlugin](./src/core/types.ts#L206-L228)：
 
 - `name: string`
 - `install?(engine)`：引擎侧初始化入口（在 `engine.use(plugin)` 时调用）
@@ -19,36 +19,36 @@ QuizLight 的插件系统目标是：在不修改核心引擎与默认 UI 的情
 
 ## 2. 注册方式（pluginRegistry）
 
-全局注册中心： [pluginRegistry](file:///workspace/src/core/plugins.ts)
+全局注册中心： [pluginRegistry](./src/core/plugins.ts)
 
 - `pluginRegistry.use(plugin)` 注册插件
 - `pluginRegistry.getPlugins()` 获取插件列表
 
 插件会在两个关键路径被“自动注入”：
 
-- 答题态： [useQuizState](file:///workspace/src/composables/useQuizState.ts#L10-L17)
-- 结果页重建引擎： [ResultView.vue](file:///workspace/src/views/ResultView.vue#L68-L73)
+- 答题态： [useQuizState](./src/composables/useQuizState.ts#L10-L17)
+- 结果页重建引擎： [ResultView.vue](./src/views/ResultView.vue#L68-L73)
 
 ## 3. UI 侧的渲染替换点
 
 ### 题型渲染替换（Question.vue）
 
-[Question.vue](file:///workspace/src/components/Question.vue#L25-L34) 会按 `question.type` 从插件中查找 `customQuestionRenderers[type]`：
+[Question.vue](./src/components/Question.vue#L25-L34) 会按 `question.type` 从插件中查找 `customQuestionRenderers[type]`：
 
 - 命中：直接 `<component :is="customRenderer" ... />`
 - 未命中：走默认“单选/多选”UI
 
 ### 结果渲染替换（ResultCard.vue）
 
-[ResultCard.vue](file:///workspace/src/components/ResultCard.vue#L29-L38) 会按 `layout` 从插件中查找 `customResultRenderers[layout]`：
+[ResultCard.vue](./src/components/ResultCard.vue#L29-L38) 会按 `layout` 从插件中查找 `customResultRenderers[layout]`：
 
-- `layout` 由题库字段 `resultLayout` 提供（见 [QuizSchema.resultLayout](file:///workspace/src/core/types.ts#L126-L133)）
+- `layout` 由题库字段 `resultLayout` 提供（见 [QuizSchema.resultLayout](./src/core/types.ts#L126-L133)）
 - 命中：直接 `<component :is="customRenderer" ... />`
 - 未命中：走默认结果卡片 UI
 
 ## 4. 计分策略扩展点
 
-引擎 [getResult](file:///workspace/src/core/engine.ts#L108-L134) 会优先尝试插件的 `customScoringStrategies[strategy]`，其中：
+引擎 [getResult](./src/core/engine.ts#L108-L134) 会优先尝试插件的 `customScoringStrategies[strategy]`，其中：
 
 - `strategy` 来自题库字段 `scoringStrategy`
 - 插件函数收到：

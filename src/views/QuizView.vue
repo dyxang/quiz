@@ -106,10 +106,10 @@ function handlePrev() {
 </script>
 
 <template>
-  <div class="min-h-screen bg-gray-50">
+  <div class="min-h-screen bg-[rgb(var(--c-gray-50))] pb-24 pt-6">
     <!-- 加载中 -->
     <div v-if="loading" class="flex items-center justify-center min-h-screen">
-      <p class="text-gray-400">{{ t('common.loading') }}</p>
+      <p class="text-[rgb(var(--c-gray-500))]">{{ t('common.loading') }}</p>
     </div>
 
     <!-- 加载错误 -->
@@ -149,13 +149,14 @@ function handlePrev() {
       </div>
 
       <!-- 底部操作栏 -->
-      <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-4">
+      <div class="fixed bottom-0 left-0 right-0 bg-[rgb(var(--bg))] border-t border-[rgb(var(--border))] px-4 py-4"
+           :style="{ boxShadow: 'var(--btn-shadow)' }">
         <div class="max-w-640px mx-auto flex items-center justify-between gap-3">
           <!-- 上一题按钮 -->
           <button
-            class="flex-1 py-3 px-4 rounded-xl border-2 border-gray-200 text-gray-600
+            class="flex-1 py-3 px-4 rounded-xl border-2 border-[rgb(var(--c-gray-200))] text-[rgb(var(--c-gray-600))]
                    font-medium transition-colors duration-200
-                   hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed"
+                   hover:bg-[rgb(var(--c-gray-50))] disabled:opacity-40 disabled:cursor-not-allowed"
             :disabled="isFirstQuestion"
             @click="handlePrev"
           >
@@ -164,7 +165,7 @@ function handlePrev() {
 
           <!-- 下一题 / 查看结果按钮 -->
           <button
-            class="flex-1 py-3 px-4 rounded-xl text-white font-medium
+            class="flex-1 py-3 px-4 rounded-xl text-[rgb(var(--c-white))] font-medium
                    transition-colors duration-200
                    disabled:opacity-40 disabled:cursor-not-allowed"
             :style="{

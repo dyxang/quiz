@@ -26,7 +26,7 @@
   - `customScoringStrategies?: Record<string, (answers, quizData) => QuizResultDef>`
   - 生命周期钩子：`onQuizLoad` / `onAnswerSubmit` / `onResultShow`
 
-参考：[types.ts](file:///workspace/src/core/types.ts)
+参考：[types.ts](./src/core/types.ts)
 
 ### schema.ts
 
@@ -34,7 +34,7 @@
   - `quizSchema`：顶层 schema
   - `validateQuiz(input)`：返回 `{ success, data?, errors }`
 
-参考：[schema.ts](file:///workspace/src/core/schema.ts)
+参考：[schema.ts](./src/core/schema.ts)
 
 ### engine.ts
 
@@ -45,7 +45,7 @@
   - `getResult()`：依据题库的 `scoringStrategy` 计算结果并触发插件钩子
   - `use(plugin)`：插件注入（可覆盖计分策略、监听生命周期）
 
-参考：[engine.ts](file:///workspace/src/core/engine.ts)
+参考：[engine.ts](./src/core/engine.ts)
 
 ### plugins.ts
 
@@ -53,7 +53,7 @@
   - `use(plugin)` 注册插件
   - `getPlugins()` 获取所有插件
 
-参考：[plugins.ts](file:///workspace/src/core/plugins.ts)
+参考：[plugins.ts](./src/core/plugins.ts)
 
 ## Composables（状态/交互）
 
@@ -66,7 +66,7 @@
   - 持久化：`saveProgress` / `restoreProgress`（localStorage）
 - 自动将 `pluginRegistry` 插件注入引擎
 
-参考：[useQuizState.ts](file:///workspace/src/composables/useQuizState.ts)
+参考：[useQuizState.ts](./src/composables/useQuizState.ts)
 
 ### useTheme
 
@@ -74,30 +74,30 @@
   - localStorage（key: `quizlight-theme`）
   - `document.documentElement` 的 `.dark/.light` class
 
-参考：[useTheme.ts](file:///workspace/src/composables/useTheme.ts)
+参考：[useTheme.ts](./src/composables/useTheme.ts)
 
 ### useI18n
 
 - 轻量 i18n（`zh/en`），变更时同步 localStorage（key: `quizlight-locale`）
 - `t(key, params?)`：支持 `{id}` 这类占位符替换
 
-参考：[useI18n.ts](file:///workspace/src/composables/useI18n.ts)
+参考：[useI18n.ts](./src/composables/useI18n.ts)
 
 ## Views（页面）
 
-- 首页：[HomeView.vue](file:///workspace/src/views/HomeView.vue)
+- 首页：[HomeView.vue](./src/views/HomeView.vue)
   - 扫描题库并展示列表
-- 答题页：[QuizView.vue](file:///workspace/src/views/QuizView.vue)
+- 答题页：[QuizView.vue](./src/views/QuizView.vue)
   - 加载题库、恢复进度、驱动答题流程
-- 结果页：[ResultView.vue](file:///workspace/src/views/ResultView.vue)
+- 结果页：[ResultView.vue](./src/views/ResultView.vue)
   - 从作答记录恢复、计算结果、提供重测/回首页
 
 ## Components（组件）
 
-- 题库卡片：[QuizCard.vue](file:///workspace/src/components/QuizCard.vue)
-- 进度条：[ProgressBar.vue](file:///workspace/src/components/ProgressBar.vue)
-- 题目渲染（可被插件替换）：[Question.vue](file:///workspace/src/components/Question.vue)
-- 结果渲染（可被插件替换）：[ResultCard.vue](file:///workspace/src/components/ResultCard.vue)
-- 维度条形图：[ScoreBar.vue](file:///workspace/src/components/ScoreBar.vue)
-- 主题/语言切换：[ThemeToggle.vue](file:///workspace/src/components/ThemeToggle.vue), [LanguageToggle.vue](file:///workspace/src/components/LanguageToggle.vue)
+- 题库卡片：[QuizCard.vue](./src/components/QuizCard.vue)
+- 进度条：[ProgressBar.vue](./src/components/ProgressBar.vue)
+- 题目渲染（可被插件替换）：[Question.vue](./src/components/Question.vue)
+- 结果渲染（可被插件替换）：[ResultCard.vue](./src/components/ResultCard.vue)
+- 维度条形图：[ScoreBar.vue](./src/components/ScoreBar.vue)
+- 主题/语言切换：[ThemeToggle.vue](./src/components/ThemeToggle.vue), [LanguageToggle.vue](./src/components/LanguageToggle.vue)
 
