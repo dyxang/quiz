@@ -8,7 +8,8 @@
 - [4. 核心 API（类/函数）](file:///workspace/docs/wiki/api.md)
 - [5. 题库 Schema（JSON）](file:///workspace/docs/wiki/quiz-schema.md)
 - [6. 插件系统](file:///workspace/docs/wiki/plugins.md)
-- [7. 开发、构建与部署](file:///workspace/docs/wiki/operations.md)
+- [7. 主题系统与样式定制](file:///workspace/docs/wiki/themes.md)
+- [8. 开发、构建与部署](file:///workspace/docs/wiki/operations.md)
 
 ## 1. 项目概览
 
