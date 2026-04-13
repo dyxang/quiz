@@ -123,6 +123,8 @@ export interface QuizSchema {
   results: QuizResultDef[]
   /** 默认结果（无法匹配时使用） */
   defaultResult: QuizResultDef
+  /** 主题 ID (可选) */
+  themeId?: string
   /** 自定义结果展示布局 (供插件使用) */
   resultLayout?: string
   /** 计分策略 */
