@@ -1,7 +1,0 @@
-- [x] `package.json`, `vite.config.ts`, `uno.config.ts` 等配置文件已正确创建。
-- [x] `src/core/types.ts` 和 `src/core/schema.ts` 包含所有必需的类型与 Zod 校验逻辑。
-- [x] `src/core/engine.ts` 中的 `QuizEngine` 实现了测验的加载、答题记录和结果计算。
-- [x] 路由文件 `src/router.ts` 定义了三大主页面并可正常跳转。
-- [x] `useQuizState.ts` 成功封装引擎，提供响应式的状态和接口。
-- [x] 运行 `pnpm install` 成功，无报错。
-- [x] 运行 `pnpm tsc --noEmit` 无 TypeScript 类型报错。

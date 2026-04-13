@@ -1,10 +1,10 @@
 // src/core/types.ts
 
 /** 题目类型 */
-export type QuestionType = 'single' | 'multiple' | 'scale'
+export type QuestionType = 'single' | 'multiple' | 'scale' | (string & {})
 
 /** 计分策略 */
-export type ScoringStrategy = 'dimension-max' | 'total-score' | 'weighted'
+export type ScoringStrategy = 'dimension-max' | 'total-score' | 'weighted' | (string & {})
 
 /** 平局处理方式 */
 export type TieBreak = 'first' | 'random'
@@ -123,6 +123,8 @@ export interface QuizSchema {
   results: QuizResultDef[]
   /** 默认结果（无法匹配时使用） */
   defaultResult: QuizResultDef
+  /** 自定义结果展示布局 (供插件使用) */
+  resultLayout?: string
   /** 计分策略 */
   scoringStrategy: ScoringStrategy
   /** 平局处理方式 */
@@ -199,4 +201,28 @@ export interface QuizMeta {
   version: string
   /** 测验作者 */
   author: string
+}
+
+/** 插件生命周期钩子接口 */
+export interface PluginLifecycleHooks {
+  onQuizLoad?: (quizData: QuizSchema) => void
+  onAnswerSubmit?: (questionId: string, selectedIndices: number[]) => void
+  onResultShow?: (result: QuizResult) => void
+}
+
+/** 插件 API 定义 */
+export interface QuizPlugin extends PluginLifecycleHooks {
+  /** 插件名称 */
+  name: string
+  /** 自定义题型渲染器 (QuestionType -> Vue Component) */
+  customQuestionRenderers?: Record<string, any>
+  /** 自定义结果展示组件 (result layout -> Vue Component) */
+  customResultRenderers?: Record<string, any>
+  /** 自定义计分策略 */
+  customScoringStrategies?: Record<string, (
+    answers: Map<string, number[]>,
+    quizData: QuizSchema
+  ) => QuizResultDef>
+  /** 初始化插件 */
+  install?: (engine: QuizEngine) => void
 }

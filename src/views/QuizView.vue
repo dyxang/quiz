@@ -7,10 +7,14 @@ import type { QuizSchema } from '@/core'
 import { useQuizState } from '@/composables/useQuizState'
 import ProgressBar from '@/components/ProgressBar.vue'
 import Question from '@/components/Question.vue'
+import ThemeToggle from '@/components/ThemeToggle.vue'
+import LanguageToggle from '@/components/LanguageToggle.vue'
+import { useI18n } from '@/composables/useI18n'
 
 const route = useRoute()
 const router = useRouter()
 const quizId = route.params.id as string
+const { t } = useI18n()
 
 /** 加载状态 */
 const loading = ref(true)
@@ -30,6 +34,7 @@ const {
   nextQuestion,
   prevQuestion,
   getAnswersMap,
+  restoreProgress,
 } = useQuizState()
 
 /** 加载题库数据 */
@@ -56,15 +61,17 @@ onMounted(async () => {
     }
 
     if (!quizData) {
-      loadError.value = `未找到测试: ${quizId}`
+      loadError.value = t.value('error.quizNotFound', { id: quizId })
       return
     }
 
     // 加载测验到状态管理
     loadQuiz(quizData)
+    // 恢复之前的答题进度
+    restoreProgress()
   } catch (error) {
     console.error('加载题库失败:', error)
-    loadError.value = '加载题库失败，请刷新重试'
+    loadError.value = t.value('error.loadFailed')
   } finally {
     loading.value = false
   }
@@ -96,7 +103,7 @@ function handlePrev() {
   <div class="min-h-screen bg-gray-50">
     <!-- 加载中 -->
     <div v-if="loading" class="flex items-center justify-center min-h-screen">
-      <p class="text-gray-400">加载中...</p>
+      <p class="text-gray-400">{{ t('common.loading') }}</p>
     </div>
 
     <!-- 加载错误 -->
@@ -106,7 +113,7 @@ function handlePrev() {
         to="/"
         class="text-primary hover:text-primary-dark text-sm underline"
       >
-        返回首页
+        {{ t('common.home') }}
       </router-link>
     </div>
 
@@ -116,7 +123,14 @@ function handlePrev() {
       <ProgressBar
         :current="currentQuestionIndex + 1"
         :total="totalQuestions"
-      />
+      >
+        <template #right>
+          <div class="flex items-center gap-2">
+            <LanguageToggle />
+            <ThemeToggle />
+          </div>
+        </template>
+      </ProgressBar>
 
       <!-- 题目区域 -->
       <div class="px-4 pb-32">
@@ -139,7 +153,7 @@ function handlePrev() {
             :disabled="isFirstQuestion"
             @click="handlePrev"
           >
-            上一题
+            {{ t('quiz.prev') }}
           </button>
 
           <!-- 下一题 / 查看结果按钮 -->
@@ -153,7 +167,7 @@ function handlePrev() {
             :disabled="selectedOptions.length === 0"
             @click="handleNext"
           >
-            {{ isLastQuestion ? '查看结果' : '下一题' }}
+            {{ isLastQuestion ? t('quiz.viewResult') : t('quiz.next') }}
           </button>
         </div>
       </div>
