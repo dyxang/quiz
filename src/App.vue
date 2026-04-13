@@ -1,61 +1,6 @@
 <!-- src/App.vue -->
-<script setup lang="ts">
-import { useRegisterSW } from 'virtual:pwa-register/vue'
-import { useI18n } from '@/composables/useI18n'
-
-const { t } = useI18n()
-
-const {
-  offlineReady,
-  needRefresh,
-  updateServiceWorker,
-} = useRegisterSW({
-  onRegistered(r) {
-    console.log('SW Registered:', r)
-  },
-  onRegisterError(error) {
-    console.log('SW registration error', error)
-  },
-})
-
-function close() {
-  offlineReady.value = false
-  needRefresh.value = false
-}
-</script>
-
 <template>
   <router-view />
-
-  <!-- PWA Reload Prompt -->
-  <div
-    v-if="offlineReady || needRefresh"
-    class="fixed bottom-4 right-4 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 z-50 max-w-sm w-[calc(100%-2rem)] flex flex-col gap-3"
-  >
-    <div class="text-sm text-gray-700 dark:text-gray-200">
-      <span v-if="offlineReady">
-        {{ t('pwa.offlineReady') }}
-      </span>
-      <span v-else>
-        {{ t('pwa.needRefresh') }}
-      </span>
-    </div>
-    <div class="flex gap-2 justify-end">
-      <button
-        v-if="needRefresh"
-        class="px-4 py-1.5 bg-primary text-white text-sm font-medium rounded-lg hover:bg-primary-dark transition-colors"
-        @click="updateServiceWorker()"
-      >
-        {{ t('pwa.reload') }}
-      </button>
-      <button
-        class="px-4 py-1.5 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-        @click="close"
-      >
-        {{ t('pwa.close') }}
-      </button>
-    </div>
-  </div>
 </template>
 
 <style>
