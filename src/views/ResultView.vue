@@ -1,6 +1,6 @@
 <!-- src/views/ResultView.vue -->
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { validateQuiz } from '@/core'
 import type { QuizSchema, QuizResult } from '@/core'
@@ -9,6 +9,7 @@ import ResultCard from '@/components/ResultCard.vue'
 import ThemeToggle from '@/components/ThemeToggle.vue'
 import LanguageToggle from '@/components/LanguageToggle.vue'
 import { useI18n } from '@/composables/useI18n'
+import { themeManager } from '@/plugins/theme'
 
 const route = useRoute()
 const router = useRouter()
@@ -24,6 +25,11 @@ const quizResult = ref<QuizResult | null>(null)
 
 /** 测验数据（用于维度信息展示） */
 const quizData = ref<QuizSchema | null>(null)
+
+// 页面卸载时清理主题
+onUnmounted(() => {
+  themeManager.clearTheme()
+})
 
 onMounted(async () => {
   try {
