@@ -1,1 +1,0 @@
-import{_ as t,c as o,a as s,o as n}from"./index-DlQph3g8.js";const c={},r={class:"min-h-screen p-6"};function a(l,e){return n(),o("div",r,[...e[0]||(e[0]=[s("h1",{class:"text-2xl font-bold mb-4"},"QuizLight",-1),s("p",null,"测试列表页（待实现）",-1)])])}const _=t(c,[["render",a]]);export{_ as default};
