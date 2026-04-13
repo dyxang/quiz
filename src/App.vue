@@ -22,7 +22,17 @@ import GlobalHeader from '@/components/GlobalHeader.vue'
   --radius: 0.75rem;
 
   /* Extended Theme Tokens */
+  --c-surface: 255, 255, 255;
+  --c-text-primary: 17, 24, 39;
+  --border-width: 1px;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: inherit;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --shadow-glow: 0 0 10px rgba(0, 0, 0, 0.1);
   --bg-pattern: none;
+  --transition-speed: 200ms;
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -57,6 +67,10 @@ import GlobalHeader from '@/components/GlobalHeader.vue'
   --fg: #f9fafb;
   --border: #374151;
 
+  --c-surface: 31, 41, 55;
+  --c-text-primary: 249, 250, 251;
+  --shadow-glow: 0 0 10px rgba(255, 255, 255, 0.1);
+
   --c-white: 17, 24, 39;
   --c-gray-50: 31, 41, 55;
   --c-gray-100: 55, 65, 81;
@@ -77,6 +91,10 @@ import GlobalHeader from '@/components/GlobalHeader.vue'
     --bg: #111827;
     --fg: #f9fafb;
     --border: #374151;
+
+    --c-surface: 31, 41, 55;
+    --c-text-primary: 249, 250, 251;
+    --shadow-glow: 0 0 10px rgba(255, 255, 255, 0.1);
 
     --c-white: 17, 24, 39;
     --c-gray-50: 31, 41, 55;
@@ -100,15 +118,16 @@ import GlobalHeader from '@/components/GlobalHeader.vue'
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-body);
   background-color: var(--bg);
   background-image: var(--bg-pattern);
+  background-size: var(--bg-pattern-size, auto);
   color: var(--fg);
   min-height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
+  font-family: var(--font-display);
 }
 
 /* 响应式容器 */

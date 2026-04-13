@@ -61,7 +61,7 @@ function reload() {
 </script>
 
 <template>
-  <div class="min-h-screen bg-[rgb(var(--c-gray-50))] pb-32 pt-6">
+  <div class="min-h-[calc(100vh-3.5rem)] bg-[rgb(var(--c-gray-50))] pb-32 pt-6">
     <!-- Main Content -->
     <main class="max-w-640px mx-auto px-4 space-y-6">
       <!-- 加载错误提示 -->

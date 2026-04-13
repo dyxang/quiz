@@ -1,8 +1,20 @@
 import type { QuizPlugin } from '@/core'
 
+export type ThemeTokenKey = 
+  | 'c-surface'
+  | 'c-text-primary'
+  | 'border-width'
+  | 'font-body'
+  | 'font-display'
+  | 'radius-sm'
+  | 'radius-md'
+  | 'radius-lg'
+  | 'shadow-glow'
+  | string
+
 export interface ThemeTokens {
-  light: Record<string, string>
-  dark: Record<string, string>
+  light: Record<ThemeTokenKey, string>
+  dark: Record<ThemeTokenKey, string>
 }
 
 export interface ThemeDefinition {

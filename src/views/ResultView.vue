@@ -115,14 +115,14 @@ function handleGoHome() {
 </script>
 
 <template>
-  <div class="min-h-screen bg-[rgb(var(--c-gray-50))] pb-32 pt-6">
+  <div class="min-h-[calc(100vh-3.5rem)] bg-[rgb(var(--c-gray-50))] pb-32 pt-6">
     <!-- Main Content -->
     <div v-if="loading" class="max-w-640px mx-auto px-4 space-y-6">
       <p class="text-gray-400">{{ t('common.loading') }}</p>
     </div>
 
     <!-- 加载错误 -->
-    <div v-else-if="loadError" class="max-w-640px mx-auto px-4 space-y-6 flex flex-col items-center justify-center min-h-screen">
+    <div v-else-if="loadError" class="max-w-640px mx-auto px-4 space-y-6 flex flex-col items-center justify-center min-h-[calc(100vh-3.5rem)]">
       <p class="text-red-500 mb-4 text-center">{{ loadError }}</p>
       <div class="flex gap-3">
         <router-link

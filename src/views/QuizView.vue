@@ -7,8 +7,6 @@ import type { QuizSchema } from '@/core'
 import { useQuizState } from '@/composables/useQuizState'
 import ProgressBar from '@/components/ProgressBar.vue'
 import Question from '@/components/Question.vue'
-import ThemeToggle from '@/components/ThemeToggle.vue'
-import LanguageToggle from '@/components/LanguageToggle.vue'
 import { useI18n } from '@/composables/useI18n'
 import { themeManager } from '@/plugins/theme'
 
@@ -106,14 +104,14 @@ function handlePrev() {
 </script>
 
 <template>
-  <div class="min-h-screen bg-[rgb(var(--c-gray-50))] pb-24 pt-6">
+  <div class="min-h-[calc(100vh-3.5rem)] bg-[rgb(var(--c-gray-50))] pb-24 pt-6">
     <!-- 加载中 -->
-    <div v-if="loading" class="flex items-center justify-center min-h-screen">
+    <div v-if="loading" class="flex items-center justify-center min-h-[calc(100vh-3.5rem)]">
       <p class="text-[rgb(var(--c-gray-500))]">{{ t('common.loading') }}</p>
     </div>
 
     <!-- 加载错误 -->
-    <div v-else-if="loadError" class="flex flex-col items-center justify-center min-h-screen">
+    <div v-else-if="loadError" class="flex flex-col items-center justify-center min-h-[calc(100vh-3.5rem)]">
       <p class="text-red-500 mb-4">{{ loadError }}</p>
       <router-link
         to="/"
@@ -129,14 +127,7 @@ function handlePrev() {
       <ProgressBar
         :current="currentQuestionIndex + 1"
         :total="totalQuestions"
-      >
-        <template #right>
-          <div class="flex items-center gap-2">
-            <LanguageToggle />
-            <ThemeToggle />
-          </div>
-        </template>
-      </ProgressBar>
+      />
 
       <!-- 题目区域 -->
       <div class="px-4 pb-32">

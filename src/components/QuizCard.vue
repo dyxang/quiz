@@ -25,19 +25,19 @@ function handleClick() {
 
 <template>
   <div
-    class="bg-[rgb(var(--bg))] rounded-[var(--radius)] p-5 cursor-pointer
-           border border-[rgb(var(--border))] transition-all duration-200"
+    class="bg-[rgb(var(--c-surface))] rounded-[length:var(--radius-md)] p-5 cursor-pointer
+           border-[length:var(--border-width)] border-[rgb(var(--border))] transition-all duration-[var(--transition-speed,200ms)]"
     :style="{ boxShadow: 'var(--card-shadow)' }"
     @click="handleClick"
   >
     <!-- 标题 -->
-    <h3 class="text-xl font-bold text-gray-900 mb-2">{{ quiz.title }}</h3>
+    <h3 class="text-xl font-bold text-[rgb(var(--c-text-primary))] font-[family:var(--font-display)] mb-2">{{ quiz.title }}</h3>
     <!-- 描述 -->
-    <p class="text-sm text-gray-500 line-clamp-2 mb-3">{{ quiz.description }}</p>
+    <p class="text-sm text-gray-500 line-clamp-2 mb-3 font-[family:var(--font-body)]">{{ quiz.description }}</p>
     <!-- 底部信息 -->
-    <div class="flex items-center justify-between">
+    <div class="flex items-center justify-between font-[family:var(--font-body)]">
       <span class="text-xs text-gray-400">{{ quiz.author }}</span>
-      <span class="bg-primary/10 text-primary px-2.5 py-0.5 rounded-full text-xs font-medium">
+      <span class="bg-primary/10 text-primary px-2.5 py-0.5 rounded-[length:var(--radius-sm)] text-xs font-medium">
         {{ quiz.questionCount }} {{ t('common.questions') }}
       </span>
     </div>

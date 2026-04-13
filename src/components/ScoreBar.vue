@@ -22,16 +22,16 @@ const oppositePercentage = computed(() => {
     <!-- 维度名称 -->
     <span
       v-if="showLabel !== false"
-      class="w-24 text-sm font-medium text-gray-700 flex-shrink-0 text-right"
+      class="w-24 text-sm font-medium text-[rgb(var(--c-text-primary))] font-[family:var(--font-body)] flex-shrink-0 text-right"
     >
       {{ dimension.name }}
     </span>
 
     <!-- 条形容器 -->
-    <div class="flex-1 h-full bg-gray-100 rounded-full overflow-hidden flex">
+    <div class="flex-1 h-full bg-[rgb(var(--border))] rounded-[length:var(--radius-md)] overflow-hidden flex">
       <!-- 正向维度填充 -->
       <div
-        class="h-full transition-all duration-500 rounded-l-full"
+        class="h-full transition-all duration-[var(--transition-speed,500ms)] rounded-l-[length:var(--radius-md)]"
         :style="{
           width: `${dimension.percentage}%`,
           backgroundColor: 'var(--primary)',
@@ -39,7 +39,7 @@ const oppositePercentage = computed(() => {
       />
       <!-- 反向维度填充 -->
       <div
-        class="h-full transition-all duration-500 rounded-r-full"
+        class="h-full transition-all duration-[var(--transition-speed,500ms)] rounded-r-[length:var(--radius-md)]"
         :style="{
           width: `${oppositePercentage}%`,
           backgroundColor: 'var(--muted)',
@@ -48,7 +48,7 @@ const oppositePercentage = computed(() => {
     </div>
 
     <!-- 百分比数字 -->
-    <span class="w-12 text-sm text-gray-600 text-right flex-shrink-0">
+    <span class="w-12 text-sm text-[rgb(var(--c-muted))] font-[family:var(--font-body)] text-right flex-shrink-0">
       {{ dimension.percentage }}%
     </span>
   </div>
