@@ -1,8 +1,0 @@
-- [x] 扩展的主题插件 Tokens (`logo-text`, `logo-font`, `footer-text`, `progress-bg`, `progress-animation`) 已在 `ThemeTokens` 中定义。
-- [x] 全局组件 `GlobalHeader.vue` 和 `GlobalFooter.vue` 的 Logo 和 Footer 内容能够通过 CSS `content: var(--xxx)` 动态变化。
-- [x] 进度条 `ProgressBar.vue` 的样式支持使用变量呈现复杂的背景色（如彩虹色）和动画（如海浪或呼吸）。
-- [x] 实现了 Notion、Dracula、Github 三款经典的配色与排版主题。
-- [x] 验证主题变更确实能够响应至实际界面，各组件文本、字体、配色随主题独立更迭。
-- [x] 工作流文档 `AGENTS.md` 和 `LIST.md` 的内容已经同步更新。
-- [x] 已执行 `git gc` 清理冗余，并成功执行打包构建。
-- [x] 项目变更已直接提交并保存至 `main` 分支。
