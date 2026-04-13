@@ -61,3 +61,6 @@
   - 移除 `vite-plugin-pwa` / `workbox-window` 依赖与 Vite PWA 插件配置。
   - 删除 SW 注册与更新提示 UI，并清理 `tsconfig.json` 与 i18n 中的 PWA 相关配置。
   - `pnpm vitest run` 与 `pnpm build` 验证通过。
+- **2026-04-13**: 补充项目文档（Code Wiki + README）。
+  - 新增 [README.md](file:///workspace/README.md)（面向用户与部署者）。
+  - 新增 [docs/wiki](file:///workspace/docs/wiki)（架构、模块、API、题库 Schema、插件与运维文档）。
