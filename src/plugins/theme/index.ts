@@ -1,6 +1,6 @@
 import type { QuizPlugin } from '@/core'
 
-export type ThemeTokenKey = 
+export type ThemeTokenKey =
   | 'c-surface'
   | 'c-text-primary'
   | 'border-width'
