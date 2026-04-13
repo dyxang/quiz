@@ -15,3 +15,4 @@
 ## 近期变更
 1.进度保存、深色模式、多语言、插件扩展系统已全部完成并通过`pnpm build` 验证
 2.PWA 支持已移除（survey/test 类型项目无需离线安装支持）
+3.已生成面向开发者的 Code Wiki（docs/wiki）与面向用户/部署者的 README.md
