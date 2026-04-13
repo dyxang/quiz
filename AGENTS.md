@@ -26,6 +26,12 @@
 - [x] **里程碑 3：数据集成与项目交付** (Step 9-10)
   - [x] Step 9: 示例题库
   - [x] Step 10: 集成与样式调优
+- [x] **里程碑 4：进阶功能**
+  - [x] Task 1: 进度保存 (localStorage)
+  - [x] Task 2: 深色模式 (CSS 变量 + localStorage)
+  - [x] Task 3: 多语言 (i18n)
+  - [x] Task 4: PWA 离线支持
+  - [x] Task 5: 插件扩展系统
 
 ## 工作日志
 - **2026-04-13**: 项目启动，初始化 `TODO.md` 和 `AGENTS.md`，明确了 AI Agent 开发规范和 10 步执行计划，正式准备进入开发阶段。
@@ -39,3 +45,29 @@
   - 修改了 `tsconfig.json` 添加 `vite/client` 类型声明。
   - 在 `src/App.vue` 中配置了响应式布局和全局样式，确保了各种设备下的正常显示。
   - `pnpm build` 编译成功，MVP 验收清单验证通过，至此整个里程碑 1-3 全部完成。
+- **2026-04-13**: 完成 Task 1 进度保存 (localStorage)。
+  - 修改 `src/composables/useQuizState.ts` 增加 `saveProgress` 与 `restoreProgress` 方法，在每道题提交后实时保存。
+  - 修改 `src/views/QuizView.vue` 在进入时调用 `restoreProgress()`，实现答题中途退出可恢复进度。
+  - `pnpm build` 验证通过，并更新了 `TODO.md` 与 `PRD.md` 相关说明。
+- **2026-04-13**: 完成 Task 2 深色模式。
+  - 修改 `uno.config.ts` 以将灰度颜色映射至 CSS 变量 `var(--c-gray-*)` 和 `var(--c-white)`，并在 `src/App.vue` 中配置了深浅模式（`.dark` 和 `@media (prefers-color-scheme: dark)`）的具体变量值。
+  - 新增了 `src/composables/useTheme.ts` 和 `src/components/ThemeToggle.vue` 组件。
+  - 在 `src/views/HomeView.vue` (头部导航栏) 和 `src/views/QuizView.vue` (`ProgressBar` 的 `slot` 右侧) 中集成了深色模式切换按钮。
+  - `pnpm build` 验证通过，更新了 `TODO.md`、`PRD.md` 和 `AGENTS.md`。
+- **2026-04-13**: 完成 Task 3 多语言 (i18n)。
+  - 新增 `src/composables/useI18n.ts` 轻量级语言管理逻辑，包含中英文本字典。
+  - 新增 `src/components/LanguageToggle.vue` 语言切换组件。
+  - 在 `HomeView`、`QuizView`、`ResultView` 等页面头部添加语言切换控件，并将硬编码中文替换为 `t()` 翻译函数调用。
+  - `pnpm build` 验证通过。
+- **2026-04-13**: 完成 Task 4 PWA 离线支持。
+  - 安装并配置了 `vite-plugin-pwa` 及 `workbox-window`，在 `vite.config.ts` 中配置了 Service Worker 缓存策略（包含核心资源和 JSON 题库的缓存）。
+  - 在 `src/App.vue` 中集成了 `virtual:pwa-register/vue` 的 `useRegisterSW` hook，并添加了 PWA 离线就绪和内容更新提示的 UI 逻辑。
+  - 补充了 `src/composables/useI18n.ts` 中 PWA 相关的多语言词条。
+  - 修改 `tsconfig.json` 添加 `vite-plugin-pwa/client` 类型声明。
+  - `pnpm build` 编译成功，更新了 `TODO.md` 与 `PRD.md` 相关说明。
+- **2026-04-13**: 完成 Task 5 插件扩展系统。
+  - 定义了 `QuizPlugin` 和相关钩子接口（`src/core/types.ts`）。
+  - 在 `src/core/engine.ts` 实现了 `QuizEngine.use(plugin)` 插件注册、自定义计分策略处理和生命周期钩子触发。
+  - 创建全局 `pluginRegistry`（`src/core/plugins.ts`）并自动在 `useQuizState` 及 `ResultView` 中注册。
+  - 重构了 `Question.vue` 和 `ResultCard.vue`，支持通过自定义渲染器替换默认组件。
+  - `pnpm build` 验证通过，更新了 `TODO.md` 与 `PRD.md` 相关说明。

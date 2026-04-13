@@ -139,6 +139,8 @@ export const quizSchema = z.object({
     .min(1, '至少需要 1 个结果定义'),
   /** 默认结果 */
   defaultResult: QuizResultDefSchema,
+  /** 自定义结果展示布局 (可选) */
+  resultLayout: z.string().optional(),
   /** 计分策略 */
   scoringStrategy: ScoringStrategySchema,
   /** 平局处理方式 */

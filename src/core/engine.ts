@@ -7,6 +7,7 @@ import type {
   DimensionScore,
   Dimension,
   TieBreak,
+  QuizPlugin,
 } from './types'
 
 /**
@@ -17,18 +18,37 @@ export class QuizEngine {
   private quizData: QuizSchema | null = null
   private answers = new Map<string, number[]>()
   private currentQuestionIndex = 0
+  private plugins: QuizPlugin[] = []
+
+  /** 注册插件 */
+  use(plugin: QuizPlugin): void {
+    if (plugin.install) {
+      plugin.install(this)
+    }
+    this.plugins.push(plugin)
+  }
 
   /** 加载测验数据 */
   loadQuiz(quizData: QuizSchema): void {
     this.quizData = quizData
     this.answers.clear()
     this.currentQuestionIndex = 0
+
+    // 触发插件钩子
+    for (const plugin of this.plugins) {
+      plugin.onQuizLoad?.(quizData)
+    }
   }
 
   /** 记录对某道题的回答 */
   answerQuestion(questionId: string, selectedOptionIndices: number[]): void {
     if (!this.quizData) return
     this.answers.set(questionId, selectedOptionIndices)
+
+    // 触发插件钩子
+    for (const plugin of this.plugins) {
+      plugin.onAnswerSubmit?.(questionId, selectedOptionIndices)
+    }
   }
 
   /** 跳转到指定索引的题目 */
@@ -92,25 +112,43 @@ export class QuizEngine {
     const scores = this.accumulateScores()
     const strategy = this.quizData.scoringStrategy
 
-    let matchedResult: QuizResultDef
+    let matchedResult: QuizResultDef | undefined
 
-    if (strategy === 'dimension-max') {
-      matchedResult = this.calculateDimensionMax(scores)
-    } else if (strategy === 'total-score') {
-      matchedResult = this.calculateTotalScore(scores)
-    } else {
-      matchedResult = this.calculateTotalScore(scores) // weighted 暂用 total-score 逻辑
+    // 优先尝试插件注册的自定义计分策略
+    for (const plugin of this.plugins) {
+      if (plugin.customScoringStrategies?.[strategy]) {
+        matchedResult = plugin.customScoringStrategies[strategy](this.answers, this.quizData)
+        break
+      }
+    }
+
+    // 回退到内置策略
+    if (!matchedResult) {
+      if (strategy === 'dimension-max') {
+        matchedResult = this.calculateDimensionMax(scores)
+      } else if (strategy === 'total-score') {
+        matchedResult = this.calculateTotalScore(scores)
+      } else {
+        matchedResult = this.calculateTotalScore(scores) // weighted 暂用 total-score 逻辑
+      }
     }
 
     const dimensionScores = this.getDimensionScores()
 
-    return {
+    const finalResult: QuizResult = {
       resultId: matchedResult.id,
       result: matchedResult,
       dimensionScores,
       totalQuestions: this.quizData.questions.length,
       answeredQuestions: this.answers.size,
     }
+
+    // 触发插件钩子
+    for (const plugin of this.plugins) {
+      plugin.onResultShow?.(finalResult)
+    }
+
+    return finalResult
   }
 
   /** 重置测验状态 */

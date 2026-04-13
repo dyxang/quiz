@@ -18,4 +18,6 @@ export type {
 
 export { quizSchema, validateQuiz } from './schema'
 export type { ValidateResult } from './schema'
+export { pluginRegistry } from './plugins'
+export type { QuizPlugin } from './types'
 export { QuizEngine } from './engine'

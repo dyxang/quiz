@@ -1,7 +1,12 @@
 <!-- src/components/ResultCard.vue -->
 <script setup lang="ts">
+import { computed } from 'vue'
 import type { QuizResultDef, DimensionScore } from '@/core'
+import { pluginRegistry } from '@/core'
 import ScoreBar from './ScoreBar.vue'
+import { useI18n } from '@/composables/useI18n'
+
+const { t } = useI18n()
 
 /** 组件 Props */
 const props = defineProps<{
@@ -9,6 +14,8 @@ const props = defineProps<{
   result: QuizResultDef
   /** 各维度分数数组 */
   dimensionScores: DimensionScore[]
+  /** 结果展示布局 */
+  layout?: string
 }>()
 
 /** 组件事件 */
@@ -18,10 +25,32 @@ const emit = defineEmits<{
   /** 点击"返回首页"按钮时触发 */
   goHome: []
 }>()
+
+/** 查找是否有匹配的自定义结果渲染器 */
+const customRenderer = computed(() => {
+  if (!props.layout) return null
+  for (const plugin of pluginRegistry.getPlugins()) {
+    if (plugin.customResultRenderers && plugin.customResultRenderers[props.layout]) {
+      return plugin.customResultRenderers[props.layout]
+    }
+  }
+  return null
+})
 </script>
 
 <template>
-  <div class="bg-white rounded-2xl shadow-lg p-6 max-w-640px mx-auto">
+  <!-- 如果有自定义渲染器，直接渲染 -->
+  <component
+    v-if="customRenderer"
+    :is="customRenderer"
+    :result="result"
+    :dimensionScores="dimensionScores"
+    @retake="emit('retake')"
+    @goHome="emit('goHome')"
+  />
+
+  <!-- 否则使用默认渲染 -->
+  <div v-else class="bg-white rounded-2xl shadow-lg p-6 max-w-640px mx-auto">
     <!-- 顶部：emoji + 结果名称 + ID 标签 -->
     <div class="text-center mb-6">
       <div class="text-5xl mb-3">{{ result.emoji }}</div>
@@ -44,7 +73,7 @@ const emit = defineEmits<{
 
     <!-- 维度分数区域 -->
     <div v-if="dimensionScores.length > 0" class="border-t border-gray-100 pt-4 mt-4">
-      <h3 class="text-lg font-semibold text-gray-900 mb-4">维度分析</h3>
+      <h3 class="text-lg font-semibold text-gray-900 mb-4">{{ t('result.dimensionAnalysis') }}</h3>
       <div class="space-y-3">
         <ScoreBar
           v-for="ds in dimensionScores"
@@ -70,14 +99,14 @@ const emit = defineEmits<{
         :style="{ backgroundColor: 'var(--primary)' }"
         @click="emit('retake')"
       >
-        重新测试
+        {{ t('common.retake') }}
       </button>
       <button
         class="py-2.5 px-6 rounded-xl border-2 border-gray-300 text-gray-700 font-medium
                transition-colors duration-200 hover:bg-gray-50"
         @click="emit('goHome')"
       >
-        返回首页
+        {{ t('common.home') }}
       </button>
     </div>
   </div>

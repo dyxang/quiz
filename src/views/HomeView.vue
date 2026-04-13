@@ -4,9 +4,15 @@ import { ref, onMounted } from 'vue'
 import { validateQuiz } from '@/core'
 import type { QuizMeta, QuizSchema } from '@/core'
 import QuizCard from '@/components/QuizCard.vue'
+import ThemeToggle from '@/components/ThemeToggle.vue'
+import LanguageToggle from '@/components/LanguageToggle.vue'
 import { useRouter } from 'vue-router'
+import { useTheme } from '@/composables/useTheme'
+import { useI18n } from '@/composables/useI18n'
 
 const router = useRouter()
+const { theme, toggleTheme } = useTheme()
+const { t } = useI18n()
 
 /** 测试列表数据 */
 const quizList = ref<QuizMeta[]>([])
@@ -44,7 +50,7 @@ onMounted(async () => {
     }
   } catch (error) {
     console.error('加载题库失败:', error)
-    loadError.value = '加载题库失败，请刷新重试'
+    loadError.value = t.value('home.loadError')
   }
 })
 
@@ -62,9 +68,15 @@ function reload() {
   <div class="min-h-screen bg-gray-50">
     <!-- 顶部导航 -->
     <header class="bg-white border-b border-gray-200 sticky top-0 z-10">
-      <div class="max-w-640px mx-auto px-4 py-4">
-        <h1 class="text-xl font-bold text-gray-900">QuizLight</h1>
-        <p class="text-sm text-gray-500 mt-1">选择一个测试开始吧</p>
+      <div class="max-w-640px mx-auto px-4 py-4 flex items-center justify-between">
+        <div>
+          <h1 class="text-xl font-bold text-gray-900">QuizLight</h1>
+          <p class="text-sm text-gray-500 mt-1">{{ t('home.subtitle') }}</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <LanguageToggle />
+          <ThemeToggle />
+        </div>
       </div>
     </header>
 
@@ -77,13 +89,13 @@ function reload() {
           class="text-primary hover:text-primary-dark text-sm underline"
           @click="reload"
         >
-          刷新重试
+          {{ t('common.retry') }}
         </button>
       </div>
 
       <!-- 空状态 -->
       <div v-else-if="quizList.length === 0" class="text-center py-12">
-        <p class="text-gray-400">暂无可用测试</p>
+        <p class="text-gray-400">{{ t('home.noQuiz') }}</p>
       </div>
 
       <!-- 卡片列表 -->
