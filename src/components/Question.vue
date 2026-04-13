@@ -95,10 +95,10 @@ function isSelected(optionIndex: number): boolean {
           :key="index"
           class="w-full text-left p-4 rounded-xl border-2 transition-all duration-200
                  flex items-center gap-3 cursor-pointer
-                 hover:bg-gray-50"
+                 hover:bg-[rgb(var(--c-gray-50))]"
           :class="{
-            'border-primary bg-primary/5': isSelected(index),
-            'border-gray-200': !isSelected(index),
+            'border-primary bg-primary/5 text-primary': isSelected(index),
+            'border-[rgb(var(--c-gray-200))] text-[rgb(var(--c-gray-800))]': !isSelected(index),
           }"
           @click="handleOptionClick(index)"
         >

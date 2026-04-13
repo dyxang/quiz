@@ -5,12 +5,12 @@ import router from './router'
 import 'virtual:uno.css'
 import { pluginRegistry } from '@/core'
 import { ThemeManagerPlugin, themeManager } from '@/plugins/theme'
-import { themePlainDraft, themeGraphiteCalm, themeMonochromeSharp } from '@/plugins/theme/themes'
+import { themeNeoBrutalism, themeMinimalistSpace, themeRetroMac } from '@/plugins/theme/themes'
 
 // Register themes
-themeManager.registerTheme(themePlainDraft)
-themeManager.registerTheme(themeGraphiteCalm)
-themeManager.registerTheme(themeMonochromeSharp)
+themeManager.registerTheme(themeNeoBrutalism)
+themeManager.registerTheme(themeMinimalistSpace)
+themeManager.registerTheme(themeRetroMac)
 
 // Register theme plugin
 pluginRegistry.use(ThemeManagerPlugin)

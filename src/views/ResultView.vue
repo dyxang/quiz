@@ -6,8 +6,6 @@ import { validateQuiz } from '@/core'
 import type { QuizSchema, QuizResult } from '@/core'
 import { QuizEngine, pluginRegistry } from '@/core'
 import ResultCard from '@/components/ResultCard.vue'
-import ThemeToggle from '@/components/ThemeToggle.vue'
-import LanguageToggle from '@/components/LanguageToggle.vue'
 import { useI18n } from '@/composables/useI18n'
 import { themeManager } from '@/plugins/theme'
 
@@ -117,24 +115,14 @@ function handleGoHome() {
 </script>
 
 <template>
-  <div class="min-h-screen bg-gray-50">
-    <header class="bg-white border-b border-gray-200 sticky top-0 z-10">
-      <div class="max-w-640px mx-auto px-4 py-4 flex items-center justify-between">
-        <h1 class="text-xl font-bold text-gray-900">QuizLight</h1>
-        <div class="flex items-center gap-2">
-          <LanguageToggle />
-          <ThemeToggle />
-        </div>
-      </div>
-    </header>
-
-    <!-- 加载中 -->
-    <div v-if="loading" class="flex items-center justify-center min-h-screen">
+  <div class="min-h-screen bg-[rgb(var(--c-gray-50))] pb-32 pt-6">
+    <!-- Main Content -->
+    <div v-if="loading" class="max-w-640px mx-auto px-4 space-y-6">
       <p class="text-gray-400">{{ t('common.loading') }}</p>
     </div>
 
     <!-- 加载错误 -->
-    <div v-else-if="loadError" class="flex flex-col items-center justify-center min-h-screen px-4">
+    <div v-else-if="loadError" class="max-w-640px mx-auto px-4 space-y-6 flex flex-col items-center justify-center min-h-screen">
       <p class="text-red-500 mb-4 text-center">{{ loadError }}</p>
       <div class="flex gap-3">
         <router-link
@@ -147,7 +135,7 @@ function handleGoHome() {
     </div>
 
     <!-- 结果展示 -->
-    <div v-else-if="quizResult && quizData" class="py-8 px-4">
+    <div v-else-if="quizResult && quizData" class="max-w-640px mx-auto px-4 space-y-6">
       <ResultCard
         :result="quizResult.result"
         :dimension-scores="quizResult.dimensionScores"

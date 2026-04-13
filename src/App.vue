@@ -1,7 +1,14 @@
-<!-- src/App.vue -->
+/* src/App.vue */
 <template>
-  <router-view />
+  <GlobalHeader />
+  <main class="min-h-screen">
+    <router-view />
+  </main>
 </template>
+
+<script setup lang="ts">
+import GlobalHeader from '@/components/GlobalHeader.vue'
+</script>
 
 <style>
 :root {
@@ -14,7 +21,16 @@
   --border: #e5e7eb;
   --radius: 0.75rem;
 
-  /* Theme Tokens */
+  /* Extended Theme Tokens */
+  --bg-pattern: none;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --btn-shadow: var(--shadow-sm);
+  --card-shadow: var(--shadow-md);
+  --font-heading: inherit;
+
+  /* Theme Colors */
   --c-primary: 99, 102, 241; /* #6366f1 */
   --c-primary-light: 129, 140, 248; /* #818cf8 */
   --c-primary-dark: 79, 70, 229; /* #4f46e5 */
@@ -86,8 +102,13 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background-color: var(--bg);
+  background-image: var(--bg-pattern);
   color: var(--fg);
   min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
 }
 
 /* 响应式容器 */

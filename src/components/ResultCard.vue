@@ -50,7 +50,8 @@ const customRenderer = computed(() => {
   />
 
   <!-- 否则使用默认渲染 -->
-  <div v-else class="bg-white rounded-2xl shadow-lg p-6 max-w-640px mx-auto">
+  <div v-else class="bg-[rgb(var(--bg))] rounded-[var(--radius)] p-6 max-w-640px mx-auto border border-[rgb(var(--border))]"
+       :style="{ boxShadow: 'var(--card-shadow)' }">
     <!-- 顶部：emoji + 结果名称 + ID 标签 -->
     <div class="text-center mb-6">
       <div class="text-5xl mb-3">{{ result.emoji }}</div>
