@@ -1,1 +1,0 @@
-import{d as s,c as t,a,t as o,u as n,b as r,o as c}from"./index-DlQph3g8.js";const u={class:"min-h-screen p-6"},m=s({__name:"QuizView",setup(i){const e=r().params.id;return(_,d)=>(c(),t("div",u,[a("p",null,"答题页 — 测试 ID: "+o(n(e))+"（待实现）",1)]))}});export{m as default};
