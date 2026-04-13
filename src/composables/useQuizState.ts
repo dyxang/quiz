@@ -105,6 +105,16 @@ export function useQuizState() {
     }
   }
 
+  /** 获取所有已回答题目的答案映射（用于持久化） */
+  function getAnswersMap(): Record<string, number[]> {
+    const answers = engine.getAnswers()
+    const map: Record<string, number[]> = {}
+    for (const [questionId, indices] of answers) {
+      map[questionId] = indices
+    }
+    return map
+  }
+
   return {
     quizData,
     currentQuestionIndex,
@@ -121,5 +131,6 @@ export function useQuizState() {
     nextQuestion,
     prevQuestion,
     retake,
+    getAnswersMap,
   }
 }

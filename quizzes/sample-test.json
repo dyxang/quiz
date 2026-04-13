@@ -1,0 +1,613 @@
+{
+  "$schema": "./schema/quiz.schema.json",
+  "id": "sample-test",
+  "title": "性格倾向测试",
+  "description": "28 道题，约 5 分钟，测测你的性格倾向",
+  "version": "1.0.0",
+  "author": "quizlight",
+  "scoringStrategy": "dimension-max",
+  "tieBreak": "first",
+  "showDimensions": true,
+
+  "questions": [
+    {
+      "id": "q1",
+      "text": "在聚会上，你通常会？",
+      "type": "single",
+      "image": null,
+      "options": [
+        { "label": "主动和陌生人聊天", "scores": { "E": 2, "I": 0 } },
+        { "label": "找熟悉的朋友待在一起", "scores": { "E": 0, "I": 2 } }
+      ],
+      "shuffleOptions": false
+    },
+    {
+      "id": "q2",
+      "text": "周末你更愿意？",
+      "type": "single",
+      "image": null,
+      "options": [
+        { "label": "参加社交活动", "scores": { "E": 2, "I": 0 } },
+        { "label": "在家看书或看电影", "scores": { "E": 0, "I": 2 } }
+      ],
+      "shuffleOptions": false
+    },
+    {
+      "id": "q3",
+      "text": "你更喜欢的工作方式是？",
+      "type": "single",
+      "image": null,
+      "options": [
+        { "label": "和团队一起头脑风暴", "scores": { "E": 2, "I": 0 } },
+        { "label": "独立思考和完成", "scores": { "E": 0, "I": 2 } }
+      ],
+      "shuffleOptions": false
+    },
+    {
+      "id": "q4",
+      "text": "认识新朋友时，你通常？",
+      "type": "single",
+      "image": null,
+      "options": [
+        { "label": "主动自我介绍", "scores": { "E": 2, "I": 0 } },
+        { "label": "等对方先开口", "scores": { "E": 0, "I": 2 } }
+      ],
+      "shuffleOptions": false
+    },
+    {
+      "id": "q5",
+      "text": "长时间独处后，你会？",
+      "type": "single",
+      "image": null,
+      "options": [
+        { "label": "感到需要出去社交", "scores": { "E": 2, "I": 0 } },
+        { "label": "感到充实和放松", "scores": { "E": 0, "I": 2 } }
+      ],
+      "shuffleOptions": false
+    },
+    {
+      "id": "q6",
+      "text": "你更倾向于？",
+      "type": "single",
+      "image": null,
+      "options": [
+        { "label": "广泛结交各行业朋友", "scores": { "E": 2, "I": 0 } },
+        { "label": "维护几个深度友谊", "scores": { "E": 0, "I": 2 } }
+      ],
+      "shuffleOptions": false
+    },
+    {
+      "id": "q7",
+      "text": "在讨论中，你通常？",
+      "type": "single",
+      "image": null,
+      "options": [
+        { "label": "抢先表达自己的观点", "scores": { "E": 2, "I": 0 } },
+        { "label": "先听完别人再说", "scores": { "E": 0, "I": 2 } }
+      ],
+      "shuffleOptions": false
+    },
+    {
+      "id": "q8",
+      "text": "你更关注？",
+      "type": "single",
+      "image": null,
+      "options": [
+        { "label": "未来的可能性", "scores": { "N": 2, "S": 0 } },
+        { "label": "当下的现实", "scores": { "N": 0, "S": 2 } }
+      ],
+      "shuffleOptions": false
+    },
+    {
+      "id": "q9",
+      "text": "做决定时，你更依赖？",
+      "type": "single",
+      "image": null,
+      "options": [
+        { "label": "直觉和灵感", "scores": { "N": 2, "S": 0 } },
+        { "label": "具体的事实和数据", "scores": { "N": 0, "S": 2 } }
+      ],
+      "shuffleOptions": false
+    },
+    {
+      "id": "q10",
+      "text": "你更喜欢哪种类型的书？",
+      "type": "single",
+      "image": null,
+      "options": [
+        { "label": "科幻/奇幻/理论", "scores": { "N": 2, "S": 0 } },
+        { "label": "实用指南/传记", "scores": { "N": 0, "S": 2 } }
+      ],
+      "shuffleOptions": false
+    },
+    {
+      "id": "q11",
+      "text": "描述一件事时，你倾向于？",
+      "type": "single",
+      "image": null,
+      "options": [
+        { "label": "用比喻和抽象概念", "scores": { "N": 2, "S": 0 } },
+        { "label": "按时间顺序陈述事实", "scores": { "N": 0, "S": 2 } }
+      ],
+      "shuffleOptions": false
+    },
+    {
+      "id": "q12",
+      "text": "你更信任？",
+      "type": "single",
+      "image": null,
+      "options": [
+        { "label": "自己的第六感", "scores": { "N": 2, "S": 0 } },
+        { "label": "经过验证的经验", "scores": { "N": 0, "S": 2 } }
+      ],
+      "shuffleOptions": false
+    },
+    {
+      "id": "q13",
+      "text": "学习新东西时，你更喜欢？",
+      "type": "single",
+      "image": null,
+      "options": [
+        { "label": "先了解整体框架", "scores": { "N": 2, "S": 0 } },
+        { "label": "从具体细节开始", "scores": { "N": 0, "S": 2 } }
+      ],
+      "shuffleOptions": false
+    },
+    {
+      "id": "q14",
+      "text": "你更欣赏的人是？",
+      "type": "single",
+      "image": null,
+      "options": [
+        { "label": "充满创意的想象家", "scores": { "N": 2, "S": 0 } },
+        { "label": "脚踏实地的实干家", "scores": { "N": 0, "S": 2 } }
+      ],
+      "shuffleOptions": false
+    },
+    {
+      "id": "q15",
+      "text": "做重要决定时，你更看重？",
+      "type": "single",
+      "image": null,
+      "options": [
+        { "label": "逻辑分析和客观事实", "scores": { "T": 2, "F": 0 } },
+        { "label": "个人价值观和他人感受", "scores": { "T": 0, "F": 2 } }
+      ],
+      "shuffleOptions": false
+    },
+    {
+      "id": "q16",
+      "text": "朋友向你倾诉烦恼，你通常？",
+      "type": "single",
+      "image": null,
+      "options": [
+        { "label": "帮TA分析问题并提出解决方案", "scores": { "T": 2, "F": 0 } },
+        { "label": "先表示理解和共情", "scores": { "T": 0, "F": 2 } }
+      ],
+      "shuffleOptions": false
+    },
+    {
+      "id": "q17",
+      "text": "你认为好的决策应该？",
+      "type": "single",
+      "image": null,
+      "options": [
+        { "label": "基于数据和逻辑", "scores": { "T": 2, "F": 0 } },
+        { "label": "考虑对人的影响", "scores": { "T": 0, "F": 2 } }
+      ],
+      "shuffleOptions": false
+    },
+    {
+      "id": "q18",
+      "text": "在争论中，你更倾向于？",
+      "type": "single",
+      "image": null,
+      "options": [
+        { "label": "坚持自己认为正确的观点", "scores": { "T": 2, "F": 0 } },
+        { "label": "寻求共识和维护关系", "scores": { "T": 0, "F": 2 } }
+      ],
+      "shuffleOptions": false
+    },
+    {
+      "id": "q19",
+      "text": "你评价一个方案时，更看重？",
+      "type": "single",
+      "image": null,
+      "options": [
+        { "label": "它是否有效和合理", "scores": { "T": 2, "F": 0 } },
+        { "label": "它是否让所有人满意", "scores": { "T": 0, "F": 2 } }
+      ],
+      "shuffleOptions": false
+    },
+    {
+      "id": "q20",
+      "text": "面对批评时，你通常？",
+      "type": "single",
+      "image": null,
+      "options": [
+        { "label": "客观分析批评是否合理", "scores": { "T": 2, "F": 0 } },
+        { "label": "先关注对方的情绪", "scores": { "T": 0, "F": 2 } }
+      ],
+      "shuffleOptions": false
+    },
+    {
+      "id": "q21",
+      "text": "你更认同哪种说法？",
+      "type": "single",
+      "image": null,
+      "options": [
+        { "label": "\"对就是对，错就是错\"", "scores": { "T": 2, "F": 0 } },
+        { "label": "\"每个人都有自己的道理\"", "scores": { "T": 0, "F": 2 } }
+      ],
+      "shuffleOptions": false
+    },
+    {
+      "id": "q22",
+      "text": "你更喜欢？",
+      "type": "single",
+      "image": null,
+      "options": [
+        { "label": "提前制定详细计划", "scores": { "J": 2, "P": 0 } },
+        { "label": "保持灵活随机应变", "scores": { "J": 0, "P": 2 } }
+      ],
+      "shuffleOptions": false
+    },
+    {
+      "id": "q23",
+      "text": "你的工作空间通常？",
+      "type": "single",
+      "image": null,
+      "options": [
+        { "label": "整洁有序", "scores": { "J": 2, "P": 0 } },
+        { "label": "看似混乱但自己能找到东西", "scores": { "J": 0, "P": 2 } }
+      ],
+      "shuffleOptions": false
+    },
+    {
+      "id": "q24",
+      "text": "面对截止日期，你通常？",
+      "type": "single",
+      "image": null,
+      "options": [
+        { "label": "提前完成", "scores": { "J": 2, "P": 0 } },
+        { "label": "最后一刻冲刺", "scores": { "J": 0, "P": 2 } }
+      ],
+      "shuffleOptions": false
+    },
+    {
+      "id": "q25",
+      "text": "你更喜欢哪种旅行方式？",
+      "type": "single",
+      "image": null,
+      "options": [
+        { "label": "按行程表行动", "scores": { "J": 2, "P": 0 } },
+        { "label": "随心所欲地探索", "scores": { "J": 0, "P": 2 } }
+      ],
+      "shuffleOptions": false
+    },
+    {
+      "id": "q26",
+      "text": "你对规则的态度是？",
+      "type": "single",
+      "image": null,
+      "options": [
+        { "label": "规则应该被遵守", "scores": { "J": 2, "P": 0 } },
+        { "label": "规则是可以变通的", "scores": { "J": 0, "P": 2 } }
+      ],
+      "shuffleOptions": false
+    },
+    {
+      "id": "q27",
+      "text": "做项目时，你倾向于？",
+      "type": "single",
+      "image": null,
+      "options": [
+        { "label": "按计划一步步推进", "scores": { "J": 2, "P": 0 } },
+        { "label": "同时进行多个方向探索", "scores": { "J": 0, "P": 2 } }
+      ],
+      "shuffleOptions": false
+    },
+    {
+      "id": "q28",
+      "text": "你的日常生活是？",
+      "type": "single",
+      "image": null,
+      "options": [
+        { "label": "规律且有节奏", "scores": { "J": 2, "P": 0 } },
+        { "label": "随性且充满变化", "scores": { "J": 0, "P": 2 } }
+      ],
+      "shuffleOptions": false
+    }
+  ],
+
+  "sections": [
+    {
+      "id": "social",
+      "title": "社交偏好",
+      "description": "了解你在社交场景中的自然倾向",
+      "questionIds": ["q1", "q2", "q3", "q4", "q5", "q6", "q7"]
+    },
+    {
+      "id": "perception",
+      "title": "认知方式",
+      "description": "探索你获取和处理信息的方式",
+      "questionIds": ["q8", "q9", "q10", "q11", "q12", "q13", "q14"]
+    },
+    {
+      "id": "decision",
+      "title": "决策风格",
+      "description": "发现你做决定时的内在逻辑",
+      "questionIds": ["q15", "q16", "q17", "q18", "q19", "q20", "q21"]
+    },
+    {
+      "id": "lifestyle",
+      "title": "生活态度",
+      "description": "看看你如何组织自己的日常生活",
+      "questionIds": ["q22", "q23", "q24", "q25", "q26", "q27", "q28"]
+    }
+  ],
+
+  "dimensions": [
+    {
+      "id": "E",
+      "name": "外倾",
+      "opposite": "I",
+      "oppositeName": "内倾"
+    },
+    {
+      "id": "N",
+      "name": "直觉型",
+      "opposite": "S",
+      "oppositeName": "实感型"
+    },
+    {
+      "id": "T",
+      "name": "理性",
+      "opposite": "F",
+      "oppositeName": "感性"
+    },
+    {
+      "id": "J",
+      "name": "计划型",
+      "opposite": "P",
+      "oppositeName": "灵活型"
+    }
+  ],
+
+  "results": [
+    {
+      "id": "INTJ",
+      "name": "独立思考者",
+      "emoji": "♟️",
+      "description": "独立而富有远见的战略家，擅长制定长期计划并高效执行。你看起来高冷，但内心其实住着一个精心规划世界的建筑师。",
+      "matchRule": [
+        { "dimension": "E", "value": "I" },
+        { "dimension": "S", "value": "N" },
+        { "dimension": "T", "value": "T" },
+        { "dimension": "J", "value": "J" }
+      ],
+      "color": "#6366f1",
+      "advice": "偶尔放下计划，享受一下即兴的快乐，说不定会有意外收获。"
+    },
+    {
+      "id": "INTP",
+      "name": "分析达人",
+      "emoji": "🔬",
+      "description": "充满好奇心的理论探索者，喜欢在脑中构建精密的逻辑体系。你对知识的渴望永无止境，堪称行走的百科全书。",
+      "matchRule": [
+        { "dimension": "E", "value": "I" },
+        { "dimension": "S", "value": "N" },
+        { "dimension": "T", "value": "T" },
+        { "dimension": "J", "value": "P" }
+      ],
+      "color": "#3b82f6",
+      "advice": "想法再好也要落地，试着把那些绝妙的点子变成现实吧。"
+    },
+    {
+      "id": "ENTJ",
+      "name": "行动派",
+      "emoji": "👑",
+      "description": "天生的领导者，果断、高效、充满魄力。你看到的是全局蓝图，并且有信心带领团队走向胜利。",
+      "matchRule": [
+        { "dimension": "E", "value": "E" },
+        { "dimension": "S", "value": "N" },
+        { "dimension": "T", "value": "T" },
+        { "dimension": "J", "value": "J" }
+      ],
+      "color": "#ef4444",
+      "advice": "领导力是你的天赋，但也别忘了倾听身边人的声音。"
+    },
+    {
+      "id": "ENTP",
+      "name": "创意先锋",
+      "emoji": "💡",
+      "description": "机智敏捷的点子制造机，热爱挑战既有观点。你能在任何话题上找到新的角度，让对话永远不无聊。",
+      "matchRule": [
+        { "dimension": "E", "value": "E" },
+        { "dimension": "S", "value": "N" },
+        { "dimension": "T", "value": "T" },
+        { "dimension": "J", "value": "P" }
+      ],
+      "color": "#f59e0b",
+      "advice": "你的创意让人惊叹，但记得把至少一个点子坚持做完。"
+    },
+    {
+      "id": "INFJ",
+      "name": "理想主义者",
+      "emoji": "🌙",
+      "description": "理想主义的守护者，拥有深刻的洞察力和对人类福祉的真诚关怀。你看似安静，内心却燃烧着改变世界的火焰。",
+      "matchRule": [
+        { "dimension": "E", "value": "I" },
+        { "dimension": "S", "value": "N" },
+        { "dimension": "T", "value": "F" },
+        { "dimension": "J", "value": "J" }
+      ],
+      "color": "#8b5cf6",
+      "advice": "照顾别人的同时也要照顾自己，你的温柔值得被温柔以待。"
+    },
+    {
+      "id": "INFP",
+      "name": "浪漫主义者",
+      "emoji": "🦋",
+      "description": "浪漫的理想主义者，内心世界丰富而多彩。你追求真实和意义，用独特的视角看待这个世界上的一切。",
+      "matchRule": [
+        { "dimension": "E", "value": "I" },
+        { "dimension": "S", "value": "N" },
+        { "dimension": "T", "value": "F" },
+        { "dimension": "J", "value": "P" }
+      ],
+      "color": "#ec4899",
+      "advice": "你的想象力是珍贵的礼物，勇敢地把内心的世界展现出来。"
+    },
+    {
+      "id": "ENFJ",
+      "name": "团队核心",
+      "emoji": "🌟",
+      "description": "充满感染力的激励者，天生善于理解他人并激发团队潜能。你就是那个让每个人都觉得自己很重要的人。",
+      "matchRule": [
+        { "dimension": "E", "value": "E" },
+        { "dimension": "S", "value": "N" },
+        { "dimension": "T", "value": "F" },
+        { "dimension": "J", "value": "J" }
+      ],
+      "color": "#f97316",
+      "advice": "你在照亮别人的同时，也别忘了给自己留一盏灯。"
+    },
+    {
+      "id": "ENFP",
+      "name": "自由灵魂",
+      "emoji": "🎭",
+      "description": "热情洋溢的自由灵魂，对生活充满无限好奇和热爱。你的热情能感染身边每一个人，让平凡的日子变得精彩。",
+      "matchRule": [
+        { "dimension": "E", "value": "E" },
+        { "dimension": "S", "value": "N" },
+        { "dimension": "T", "value": "F" },
+        { "dimension": "J", "value": "P" }
+      ],
+      "color": "#14b8a6",
+      "advice": "你的热情是超能力，但学会聚焦会让它发挥更大的威力。"
+    },
+    {
+      "id": "ISTJ",
+      "name": "稳健执行者",
+      "emoji": "📋",
+      "description": "可靠的责任担当者，做事严谨有条理，是团队中最值得信赖的基石。你说到做到，从不让人失望。",
+      "matchRule": [
+        { "dimension": "E", "value": "I" },
+        { "dimension": "S", "value": "S" },
+        { "dimension": "T", "value": "T" },
+        { "dimension": "J", "value": "J" }
+      ],
+      "color": "#64748b",
+      "advice": "你的靠谱是稀缺品质，偶尔放松一下，世界不会因为一次偷懒而崩塌。"
+    },
+    {
+      "id": "ISFJ",
+      "name": "温暖守护者",
+      "emoji": "🛡️",
+      "description": "温暖而忠诚的守护者，默默付出，细心照顾身边的每一个人。你是那种让人感到安心和被珍视的存在。",
+      "matchRule": [
+        { "dimension": "E", "value": "I" },
+        { "dimension": "S", "value": "S" },
+        { "dimension": "T", "value": "F" },
+        { "dimension": "J", "value": "J" }
+      ],
+      "color": "#22c55e",
+      "advice": "你的善良让人感动，但也要学会说\"不\"，保护好自己的边界。"
+    },
+    {
+      "id": "ESTJ",
+      "name": "高效管理者",
+      "emoji": "📊",
+      "description": "务实高效的组织者，善于建立秩序并推动事情向前发展。你是那种能把混乱变成井井有条的超级管理者。",
+      "matchRule": [
+        { "dimension": "E", "value": "E" },
+        { "dimension": "S", "value": "S" },
+        { "dimension": "T", "value": "T" },
+        { "dimension": "J", "value": "J" }
+      ],
+      "color": "#0ea5e9",
+      "advice": "效率是你的标签，但偶尔慢下来，也许会发现不一样的风景。"
+    },
+    {
+      "id": "ESFJ",
+      "name": "社交达人",
+      "emoji": "🤝",
+      "description": "热心肠的社交达人，天生善于营造和谐氛围。你是朋友圈里的粘合剂，有你在的地方就不会冷场。",
+      "matchRule": [
+        { "dimension": "E", "value": "E" },
+        { "dimension": "S", "value": "S" },
+        { "dimension": "T", "value": "F" },
+        { "dimension": "J", "value": "J" }
+      ],
+      "color": "#e11d48",
+      "advice": "你的关心温暖了很多人，但也别忘了给自己一些独处的充电时间。"
+    },
+    {
+      "id": "ISTP",
+      "name": "沉静观察者",
+      "emoji": "🔧",
+      "description": "冷静灵巧的实践家，擅长在关键时刻解决问题。你看起来淡定从容，但动手能力简直满分。",
+      "matchRule": [
+        { "dimension": "E", "value": "I" },
+        { "dimension": "S", "value": "S" },
+        { "dimension": "T", "value": "T" },
+        { "dimension": "J", "value": "P" }
+      ],
+      "color": "#78716c",
+      "advice": "你的动手能力让人佩服，试着把这份才能分享给更多人吧。"
+    },
+    {
+      "id": "ISFP",
+      "name": "随性艺术家",
+      "emoji": "🎨",
+      "description": "敏感而富有艺术气质的自由灵魂，用自己独特的方式感受和表达世界。你活在当下，每一刻都是你的画布。",
+      "matchRule": [
+        { "dimension": "E", "value": "I" },
+        { "dimension": "S", "value": "S" },
+        { "dimension": "T", "value": "F" },
+        { "dimension": "J", "value": "P" }
+      ],
+      "color": "#a855f7",
+      "advice": "你的审美和感受力是天赋，大胆创作，世界需要你的色彩。"
+    },
+    {
+      "id": "ESTP",
+      "name": "冒险实干家",
+      "emoji": "🎯",
+      "description": "行动力爆表的冒险家，喜欢挑战和刺激，擅长把握机会。你是那种说干就干、从不犹豫的行动派。",
+      "matchRule": [
+        { "dimension": "E", "value": "E" },
+        { "dimension": "S", "value": "S" },
+        { "dimension": "T", "value": "T" },
+        { "dimension": "J", "value": "P" }
+      ],
+      "color": "#eab308",
+      "advice": "你的执行力令人羡慕，但在冲锋之前多想一步会更完美。"
+    },
+    {
+      "id": "ESFP",
+      "name": "快乐感染者",
+      "emoji": "🎪",
+      "description": "活力四射的派对灵魂，天生自带聚光灯效应。你让生活变成一场精彩的表演，身边的人都忍不住被你吸引。",
+      "matchRule": [
+        { "dimension": "E", "value": "E" },
+        { "dimension": "S", "value": "S" },
+        { "dimension": "T", "value": "F" },
+        { "dimension": "J", "value": "P" }
+      ],
+      "color": "#06b6d4",
+      "advice": "你的快乐感染力超强，但也记得在热闹之后给自己一些安静的时间。"
+    }
+  ],
+
+  "defaultResult": {
+    "id": "unknown",
+    "name": "神秘人",
+    "emoji": "❓",
+    "description": "你的结果比较独特，无法归入现有的 16 种性格类型。也许你是一个尚未被定义的新物种！",
+    "matchRule": [],
+    "color": "#9ca3af",
+    "advice": "试试重新做一次测试？"
+  }
+}

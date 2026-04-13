@@ -19,13 +19,13 @@
   - [x] Step 3: 测验引擎
   - [x] Step 4: 路由与页面骨架
   - [x] Step 5: 状态管理 composable
-- [ ] **里程碑 2：UI 视图与交互实现** (Step 6-8)
-  - [ ] Step 6: 首页（HomeView + QuizCard）
-  - [ ] Step 7: 答题页（QuizView + Question + ProgressBar）
-  - [ ] Step 8: 结果页（ResultView + ResultCard + ScoreBar）
-- [ ] **里程碑 3：数据集成与项目交付** (Step 9-10)
-  - [ ] Step 9: 示例题库
-  - [ ] Step 10: 集成与样式调优
+- [x] **里程碑 2：UI 视图与交互实现** (Step 6-8)
+  - [x] Step 6: 首页（HomeView + QuizCard）
+  - [x] Step 7: 答题页（QuizView + Question + ProgressBar）
+  - [x] Step 8: 结果页（ResultView + ResultCard + ScoreBar）
+- [x] **里程碑 3：数据集成与项目交付** (Step 9-10)
+  - [x] Step 9: 示例题库
+  - [x] Step 10: 集成与样式调优
 
 ## 工作日志
 - **2026-04-13**: 项目启动，初始化 `TODO.md` 和 `AGENTS.md`，明确了 AI Agent 开发规范和 10 步执行计划，正式准备进入开发阶段。
@@ -33,3 +33,9 @@
 - **2026-04-13**: 完成 Step 2 类型层。根据 PRD 3.2 和 3.3，创建了 `src/core/types.ts`, `src/core/schema.ts`, 并统一在 `src/core/index.ts` 中导出，同时通过了 `vue-tsc` 类型检查。
 - **2026-04-13**: 完成 Step 3 测验引擎。根据 PRD Step 3 和 Chapter 3.4，创建了 `src/core/engine.ts` 并实现了 QuizEngine 类，包含加载题库、记录答案和计算结果（dimension-max、total-score 等策略）功能，同时通过了 `vue-tsc` 类型检查。
 - **2026-04-13**: 完成 Step 5 状态管理 composable。根据 PRD Step 5，创建了 `src/composables/useQuizState.ts` 并实现了答题状态管理和控制逻辑，同时通过了 `vue-tsc` 类型检查。
+- **2026-04-13**: 完成 Step 6-10，实现全部 MVP 功能：
+  - 完成了 UI 视图层的开发（HomeView、QuizView、ResultView），并实现了 QuizCard、Question、ProgressBar、ScoreBar 和 ResultCard 组件。
+  - 完成了 `quizzes/sample-test.json` 题库的创建。
+  - 修改了 `tsconfig.json` 添加 `vite/client` 类型声明。
+  - 在 `src/App.vue` 中配置了响应式布局和全局样式，确保了各种设备下的正常显示。
+  - `pnpm build` 编译成功，MVP 验收清单验证通过，至此整个里程碑 1-3 全部完成。

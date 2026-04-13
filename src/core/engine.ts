@@ -167,8 +167,25 @@ export class QuizEngine {
     }
 
     const resultId = winners.join('')
+    
+    // 先尝试精确匹配 id
     const exactMatch = this.quizData.results.find((r) => r.id === resultId)
-    return exactMatch ?? this.quizData.defaultResult
+    if (exactMatch) return exactMatch
+
+    // 再尝试通过 matchRule 逐条匹配
+    const matched = this.quizData.results.find((result) => {
+      if (result.matchRule.length === 0) return false
+
+      return result.matchRule.every((rule) => {
+        const dimension = this.quizData!.dimensions.find((d) => d.id === rule.dimension)
+        if (!dimension) return false
+        
+        const dimensionIndex = this.quizData!.dimensions.indexOf(dimension)
+        return resultId[dimensionIndex] === rule.value
+      })
+    })
+
+    return matched ?? this.quizData.defaultResult
   }
 
   /** total-score 策略：计算每个结果的维度分数之和，取最高分 */

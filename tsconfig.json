@@ -13,7 +13,8 @@
     "noEmit": true,
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "types": ["vite/client"]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "quizzes/**/*.json"],
   "references": [{ "path": "./tsconfig.node.json" }]
