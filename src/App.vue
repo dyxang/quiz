@@ -5,14 +5,20 @@
 
 <style>
 :root {
-  --primary: #6366f1;
-  --primary-light: #818cf8;
-  --primary-dark: #4f46e5;
-  --muted: #9ca3af;
+  --primary: rgb(var(--c-primary));
+  --primary-light: rgb(var(--c-primary-light));
+  --primary-dark: rgb(var(--c-primary-dark));
+  --muted: rgb(var(--c-muted));
   --bg: #ffffff;
   --fg: #111827;
   --border: #e5e7eb;
   --radius: 0.75rem;
+
+  /* Theme Tokens */
+  --c-primary: 99, 102, 241; /* #6366f1 */
+  --c-primary-light: 129, 140, 248; /* #818cf8 */
+  --c-primary-dark: 79, 70, 229; /* #4f46e5 */
+  --c-muted: 156, 163, 175; /* #9ca3af */
 
   /* Default Light Mode Colors (Tailwind Gray Scale) */
   --c-white: 255, 255, 255;

@@ -9,11 +9,11 @@ export default defineConfig({
   theme: {
     colors: {
       primary: {
-        DEFAULT: '#6366f1',
-        light: '#818cf8',
-        dark: '#4f46e5',
+        DEFAULT: 'rgba(var(--c-primary), %alpha)',
+        light: 'rgba(var(--c-primary-light), %alpha)',
+        dark: 'rgba(var(--c-primary-dark), %alpha)',
       },
-      muted: '#9ca3af',
+      muted: 'rgba(var(--c-muted), %alpha)',
       white: 'rgba(var(--c-white), %alpha)',
       gray: {
         50: 'rgba(var(--c-gray-50), %alpha)',
