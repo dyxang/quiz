@@ -4,12 +4,16 @@ import { ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { validateQuiz } from '@/core'
 import type { QuizSchema, QuizResult } from '@/core'
-import { QuizEngine } from '@/core'
+import { QuizEngine, pluginRegistry } from '@/core'
 import ResultCard from '@/components/ResultCard.vue'
+import ThemeToggle from '@/components/ThemeToggle.vue'
+import LanguageToggle from '@/components/LanguageToggle.vue'
+import { useI18n } from '@/composables/useI18n'
 
 const route = useRoute()
 const router = useRouter()
 const quizId = route.params.id as string
+const { t } = useI18n()
 
 /** 加载状态 */
 const loading = ref(true)
@@ -42,7 +46,7 @@ onMounted(async () => {
     }
 
     if (!foundQuiz) {
-      loadError.value = `未找到测试: ${quizId}`
+      loadError.value = t.value('error.quizNotFound', { id: quizId })
       return
     }
 
@@ -53,7 +57,7 @@ onMounted(async () => {
     const storedAnswers = localStorage.getItem(storageKey)
 
     if (!storedAnswers) {
-      loadError.value = '未找到答题记录，请重新测试'
+      loadError.value = t.value('error.noRecord')
       return
     }
 
@@ -62,6 +66,10 @@ onMounted(async () => {
 
     // 重建引擎状态并计算结果
     const engine = new QuizEngine()
+    // 自动注册全局插件
+    pluginRegistry.getPlugins().forEach(plugin => {
+      engine.use(plugin)
+    })
     engine.loadQuiz(foundQuiz)
 
     // 按题目顺序逐一录入答案
@@ -75,14 +83,14 @@ onMounted(async () => {
     // 计算结果
     const result = engine.getResult()
     if (!result) {
-      loadError.value = '答案不完整，请重新完成测试'
+      loadError.value = t.value('error.incomplete')
       return
     }
 
     quizResult.value = result
   } catch (error) {
     console.error('加载结果失败:', error)
-    loadError.value = '加载结果失败，请刷新重试'
+    loadError.value = t.value('error.loadResultFailed')
   } finally {
     loading.value = false
   }
@@ -104,9 +112,19 @@ function handleGoHome() {
 
 <template>
   <div class="min-h-screen bg-gray-50">
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-10">
+      <div class="max-w-640px mx-auto px-4 py-4 flex items-center justify-between">
+        <h1 class="text-xl font-bold text-gray-900">QuizLight</h1>
+        <div class="flex items-center gap-2">
+          <LanguageToggle />
+          <ThemeToggle />
+        </div>
+      </div>
+    </header>
+
     <!-- 加载中 -->
     <div v-if="loading" class="flex items-center justify-center min-h-screen">
-      <p class="text-gray-400">加载中...</p>
+      <p class="text-gray-400">{{ t('common.loading') }}</p>
     </div>
 
     <!-- 加载错误 -->
@@ -117,16 +135,17 @@ function handleGoHome() {
           to="/"
           class="text-primary hover:text-primary-dark text-sm underline"
         >
-          返回首页
+          {{ t('common.home') }}
         </router-link>
       </div>
     </div>
 
     <!-- 结果展示 -->
-    <div v-else-if="quizResult" class="py-8 px-4">
+    <div v-else-if="quizResult && quizData" class="py-8 px-4">
       <ResultCard
         :result="quizResult.result"
         :dimension-scores="quizResult.dimensionScores"
+        :layout="quizData.resultLayout"
         @retake="handleRetake"
         @go-home="handleGoHome"
       />

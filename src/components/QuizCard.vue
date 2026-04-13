@@ -1,6 +1,9 @@
 <!-- src/components/QuizCard.vue -->
 <script setup lang="ts">
 import type { QuizMeta } from '@/core'
+import { useI18n } from '@/composables/useI18n'
+
+const { t } = useI18n()
 
 /** 组件 Props */
 const props = defineProps<{
@@ -34,7 +37,7 @@ function handleClick() {
     <div class="flex items-center justify-between">
       <span class="text-xs text-gray-400">{{ quiz.author }}</span>
       <span class="bg-primary/10 text-primary px-2.5 py-0.5 rounded-full text-xs font-medium">
-        {{ quiz.questionCount }} 题
+        {{ quiz.questionCount }} {{ t('common.questions') }}
       </span>
     </div>
   </div>
