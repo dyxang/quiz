@@ -61,6 +61,8 @@
   - 移除 `vite-plugin-pwa` / `workbox-window` 依赖与 Vite PWA 插件配置。
   - 删除 SW 注册与更新提示 UI，并清理 `tsconfig.json` 与 i18n 中的 PWA 相关配置。
   - `pnpm vitest run` 与 `pnpm build` 验证通过。
-- **2026-04-13**: 补充项目文档（Code Wiki + README）。
-  - 新增 [README.md](file:///workspace/README.md)（面向用户与部署者）。
-  - 新增 [docs/wiki](file:///workspace/docs/wiki)（架构、模块、API、题库 Schema、插件与运维文档）。
+- **2026-04-13**: 优化前端外观与主题扩展。
+  - 创建 `GlobalHeader.vue` 统一收纳切换语言与黑夜模式按钮，优化视觉割裂问题。
+  - 修复黑夜模式下选择题和主操作按钮字体颜色不自适应（看不清字）的问题。
+  - 扩展 `themes.ts` 与 `uno.config.ts` 中的 Design Token（如 `bg-pattern`, `card-shadow`, `font-heading`）。
+  - 新增 3 套极具特色与差异化的默认主题（新粗野主义、极简留白、拟物复古）。
