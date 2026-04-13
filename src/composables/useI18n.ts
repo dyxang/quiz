@@ -34,12 +34,6 @@ const dictionaries = {
     theme: {
       toggle: '切换深色/浅色模式',
     },
-    pwa: {
-      offlineReady: '应用已就绪，支持离线访问',
-      needRefresh: '发现新内容，点击刷新按钮以更新',
-      reload: '刷新',
-      close: '关闭',
-    },
     i18n: {
       toggle: '切换语言 / Toggle Language',
     },
@@ -74,12 +68,6 @@ const dictionaries = {
     },
     theme: {
       toggle: 'Toggle Dark/Light Mode',
-    },
-    pwa: {
-      offlineReady: 'App ready to work offline',
-      needRefresh: 'New content available, click on reload button to update.',
-      reload: 'Reload',
-      close: 'Close',
     },
     i18n: {
       toggle: '切换语言 / Toggle Language',

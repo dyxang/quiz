@@ -35,7 +35,6 @@
 - **进度保存 (localStorage)**：答题中途退出后可恢复进度
 - **深色模式**：跟随系统偏好或手动切换，基于 CSS 变量实现主题切换
 - **多语言 (i18n)**：支持中英文界面切换，预留扩展其他语言的架构
-- **PWA 离线支持**：通过 Service Worker 实现离线访问与缓存策略
 - **插件扩展系统**：提供标准插件 API，支持自定义渲染与计分策略扩展
 
 ### MVP 不包含的功能
@@ -85,7 +84,6 @@ QuizLight 是一个**开源、纯前端、轻量化测评引擎**。
 | 多语言 | 自研 composable (`useI18n.ts`) | P2 | 轻量字典 + localStorage 持久化 |
 | 主题 | CSS 变量 + composable (`useTheme.ts`) | P2 | 支持系统偏好与手动切换，localStorage 持久化 |
 | Schema 校验 | Zod | MVP | 运行时校验 Quiz JSON 合法性 |
-| PWA | vite-plugin-pwa + workbox | P2 | Service Worker 离线缓存与更新提示 |
 | 包管理 | pnpm | MVP | 高效磁盘利用 |
 | 雷达图 | 自研 SVG 组件 | P1 | MVP 不实现 |
 | 海报生成 | Canvas 手绘 | P1 | MVP 不实现 |
@@ -105,7 +103,7 @@ QuizLight 是一个**开源、纯前端、轻量化测评引擎**。
 
 ### P2 阶段
 
-- **PWA 离线支持**：通过 Service Worker 实现离线访问与缓存策略 (已完成)
+- **PWA 离线支持**：已移除（survey/test 类型项目无需离线安装支持）
 - **进度保存 (localStorage)**：答题中途退出后可恢复进度，避免重复作答 (已完成)
 - **深色模式**：跟随系统偏好或手动切换，基于 CSS 变量实现主题切换 (已完成)
 - **多语言 (i18n)**：支持中英文界面切换，预留扩展其他语言的架构 (已完成)
@@ -1747,13 +1745,13 @@ quizlight/
 | `src/views/HomeView.vue` | 测试列表页，扫描 `quizzes/` 目录展示所有可用测试 |
 | `src/views/QuizView.vue` | 答题页，一题一页模式，含进度条、题目渲染和翻页控制 |
 | `src/views/ResultView.vue` | 结果页，展示测试结果、维度分数条和操作按钮 |
-| `src/App.vue` | 根组件，包含 `<router-view>`、全局布局结构与 PWA 更新提示 |
+| `src/App.vue` | 根组件，包含 `<router-view>` 与全局布局/样式 |
 | `src/main.ts` | 创建 Vue 应用实例，挂载路由插件并渲染到 DOM |
 | `src/router.ts` | 定义 `/`、`/quiz/:id`、`/result/:id` 三条路由规则 |
 | `quizzes/sample-test.json` | 示例测试数据（28 题，16 种结果类型） |
 | `index.html` | HTML 入口文件，挂载 Vue 应用根节点 |
 | `package.json` | 项目依赖配置（Vue 3、Vue Router、Zod、UnoCSS 等） |
-| `vite.config.ts` | Vite 构建配置，包含 UnoCSS 与 PWA 插件配置 |
+| `vite.config.ts` | Vite 构建配置，包含 UnoCSS 等插件配置 |
 | `tsconfig.json` | TypeScript 编译配置，启用严格模式和路径别名 |
 | `uno.config.ts` | UnoCSS 原子化 CSS 配置，定义主题色和预设规则 |
 | `LICENSE` | MIT 开源许可证文件 |

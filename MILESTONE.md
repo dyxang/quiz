@@ -16,7 +16,7 @@
   - [x] Task 1: 进度保存 (localStorage)
   - [x] Task 2: 深色模式 (CSS 变量 + localStorage)
   - [x] Task 3: 多语言 (i18n)
-  - [x] Task 4: PWA 离线支持
+  - [x] Task 4: PWA 离线支持（已移除）
   - [x] Task 5: 插件扩展系统
   
 ## 工作日志
@@ -57,3 +57,7 @@
   - 创建全局 `pluginRegistry`（`src/core/plugins.ts`）并自动在 `useQuizState` 及 `ResultView` 中注册。
   - 重构了 `Question.vue` 和 `ResultCard.vue`，支持通过自定义渲染器替换默认组件。
   - `pnpm build` 验证通过，更新了 `TODO.md` 与 `PRD.md` 相关说明。
+- **2026-04-13**: 移除 PWA 功能（项目定位为 survey/test，无需离线安装支持）。
+  - 移除 `vite-plugin-pwa` / `workbox-window` 依赖与 Vite PWA 插件配置。
+  - 删除 SW 注册与更新提示 UI，并清理 `tsconfig.json` 与 i18n 中的 PWA 相关配置。
+  - `pnpm vitest run` 与 `pnpm build` 验证通过。
