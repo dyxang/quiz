@@ -69,7 +69,13 @@ export function useQuizState() {
 
     if (currentQuestionIndex.value < totalQuestions.value - 1) {
       currentQuestionIndex.value++
-      selectedOptions.value = []
+      const nextQ = quizData.value?.questions[currentQuestionIndex.value]
+      if (nextQ) {
+        const nextAnswer = engine.getAnswers().get(nextQ.id)
+        selectedOptions.value = nextAnswer ? [...nextAnswer] : []
+      } else {
+        selectedOptions.value = []
+      }
     } else {
       // 所有题目已回答完毕，计算结果
       result.value = engine.getResult()
