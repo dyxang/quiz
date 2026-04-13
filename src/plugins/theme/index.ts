@@ -10,6 +10,11 @@ export type ThemeTokenKey =
   | 'radius-md'
   | 'radius-lg'
   | 'shadow-glow'
+  | 'logo-text'
+  | 'logo-font'
+  | 'footer-text'
+  | 'progress-bg'
+  | 'progress-animation'
   | string
 
 export interface ThemeTokens {

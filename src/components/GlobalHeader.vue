@@ -9,7 +9,7 @@ import LanguageToggle from './LanguageToggle.vue'
     <div class="max-w-640px mx-auto px-4 h-14 flex items-center justify-between">
       <!-- 占位，可以放 Logo 或标题，保持居中平衡 -->
       <div class="flex-1 flex items-center">
-        <span class="text-sm font-bold text-primary tracking-wide font-[family:var(--font-display)]">QUIZLIGHT</span>
+        <span class="text-sm font-bold tracking-wide" style="color: var(--logo-text); font-family: var(--logo-font); text-shadow: var(--logo-glow, none);">QUIZLIGHT</span>
       </div>
 
       <div class="flex items-center gap-1">

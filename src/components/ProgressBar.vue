@@ -25,7 +25,8 @@ const percentage = computed(() => {
         class="h-full transition-all duration-[var(--transition-speed,300ms)]"
         :style="{
           width: `${percentage}%`,
-          backgroundColor: 'var(--primary)',
+          background: 'var(--progress-bg)',
+          animation: 'var(--progress-animation)'
         }"
       />
     </div>

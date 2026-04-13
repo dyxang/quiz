@@ -26,7 +26,12 @@ export const themeNeoBrutalism: ThemeDefinition = {
       'radius-sm': '0px',
       'radius-md': '0px',
       'radius-lg': '0px',
-      'shadow-glow': 'none'
+      'shadow-glow': 'none',
+      'logo-text': '#1a1a1a',
+      'logo-font': '"Space Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
+      'footer-text': 'rgba(156, 163, 175, 1)',
+      'progress-bg': 'repeating-linear-gradient(45deg, #1a1a1a, #1a1a1a 10px, #fcf9f2 10px, #fcf9f2 20px)',
+      'progress-animation': 'progress-wave 2s linear infinite'
     },
     dark: {
       'c-primary': '0, 255, 170', // 荧光绿
@@ -50,7 +55,12 @@ export const themeNeoBrutalism: ThemeDefinition = {
       'radius-sm': '0px',
       'radius-md': '0px',
       'radius-lg': '0px',
-      'shadow-glow': 'none'
+      'shadow-glow': 'none',
+      'logo-text': '#fcf9f2',
+      'logo-font': '"Space Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
+      'footer-text': 'rgba(107, 114, 128, 1)',
+      'progress-bg': 'repeating-linear-gradient(45deg, #fcf9f2, #fcf9f2 10px, #1a1a1a 10px, #1a1a1a 20px)',
+      'progress-animation': 'progress-wave 2s linear infinite'
     }
   }
 }
@@ -80,7 +90,12 @@ export const themeMinimalistSpace: ThemeDefinition = {
       'radius-sm': '0.5rem',
       'radius-md': '1rem',
       'radius-lg': '1.5rem',
-      'shadow-glow': '0 0 40px rgba(0, 0, 0, 0.03)'
+      'shadow-glow': '0 0 40px rgba(0, 0, 0, 0.03)',
+      'logo-text': '#111827',
+      'logo-font': '"Playfair Display", "Merriweather", serif',
+      'footer-text': 'rgba(156, 163, 175, 1)',
+      'progress-bg': 'rgba(17, 24, 39, 1)',
+      'progress-animation': 'none'
     },
     dark: {
       'c-primary': '249, 250, 251', // 近白
@@ -103,7 +118,12 @@ export const themeMinimalistSpace: ThemeDefinition = {
       'radius-sm': '0.5rem',
       'radius-md': '1rem',
       'radius-lg': '1.5rem',
-      'shadow-glow': '0 0 40px rgba(255, 255, 255, 0.03)'
+      'shadow-glow': '0 0 40px rgba(255, 255, 255, 0.03)',
+      'logo-text': '#f9fafb',
+      'logo-font': '"Playfair Display", "Merriweather", serif',
+      'footer-text': 'rgba(75, 85, 99, 1)',
+      'progress-bg': 'rgba(249, 250, 251, 1)',
+      'progress-animation': 'none'
     }
   }
 }
@@ -133,7 +153,12 @@ export const themeRetroMac: ThemeDefinition = {
       'radius-sm': '0px',
       'radius-md': '0px',
       'radius-lg': '0px',
-      'shadow-glow': 'none'
+      'shadow-glow': 'none',
+      'logo-text': '#0000ff',
+      'logo-font': '"Chicago", "Courier New", Courier, monospace',
+      'footer-text': 'rgba(153, 153, 153, 1)',
+      'progress-bg': 'linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3)',
+      'progress-animation': 'progress-rainbow 3s linear infinite'
     },
     dark: {
       'c-primary': '255, 165, 0', // 琥珀色
@@ -156,7 +181,203 @@ export const themeRetroMac: ThemeDefinition = {
       'radius-sm': '0px',
       'radius-md': '0px',
       'radius-lg': '0px',
-      'shadow-glow': 'none'
+      'shadow-glow': 'none',
+      'logo-text': '#ffa500',
+      'logo-font': '"Chicago", "Courier New", Courier, monospace',
+      'footer-text': 'rgba(102, 102, 102, 1)',
+      'progress-bg': 'linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3)',
+      'progress-animation': 'progress-rainbow 3s linear infinite'
+    }
+  }
+}
+
+export const themeNotion: ThemeDefinition = {
+  id: 'notion',
+  name: 'Notion 极简',
+  tokens: {
+    light: {
+      'c-primary': '55, 53, 47', // Notion text primary
+      'c-primary-light': '100, 100, 100',
+      'c-primary-dark': '30, 30, 30',
+      'c-muted': '155, 154, 151',
+      'bg': '#ffffff',
+      'fg': '#37352f',
+      'border': '#e9e9e7',
+      'radius': '3px',
+      'bg-pattern': 'none',
+      'card-shadow': 'rgba(15, 15, 15, 0.1) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 2px 4px',
+      'btn-shadow': 'rgba(15, 15, 15, 0.1) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 2px 4px',
+      'font-heading': 'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
+      'c-surface': '255, 255, 255',
+      'c-text-primary': '55, 53, 47',
+      'border-width': '1px',
+      'font-body': 'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
+      'font-display': 'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
+      'radius-sm': '3px',
+      'radius-md': '4px',
+      'radius-lg': '6px',
+      'shadow-glow': 'none',
+      'logo-text': '#37352f',
+      'logo-font': 'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
+      'footer-text': 'rgba(55, 53, 47, 0.6)',
+      'progress-bg': 'rgba(55, 53, 47, 1)',
+      'progress-animation': 'none'
+    },
+    dark: {
+      'c-primary': '255, 255, 255',
+      'c-primary-light': '220, 220, 220',
+      'c-primary-dark': '200, 200, 200',
+      'c-muted': '155, 155, 155',
+      'bg': '#191919',
+      'fg': '#ffffff',
+      'border': '#373737',
+      'radius': '3px',
+      'bg-pattern': 'none',
+      'card-shadow': 'rgba(255, 255, 255, 0.1) 0px 0px 0px 1px, rgba(255, 255, 255, 0.1) 0px 2px 4px',
+      'btn-shadow': 'rgba(255, 255, 255, 0.1) 0px 0px 0px 1px, rgba(255, 255, 255, 0.1) 0px 2px 4px',
+      'font-heading': 'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
+      'c-surface': '32, 32, 32',
+      'c-text-primary': '255, 255, 255',
+      'border-width': '1px',
+      'font-body': 'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
+      'font-display': 'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
+      'radius-sm': '3px',
+      'radius-md': '4px',
+      'radius-lg': '6px',
+      'shadow-glow': 'none',
+      'logo-text': '#ffffff',
+      'logo-font': 'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
+      'footer-text': 'rgba(255, 255, 255, 0.6)',
+      'progress-bg': 'rgba(255, 255, 255, 1)',
+      'progress-animation': 'none'
+    }
+  }
+}
+
+export const themeDracula: ThemeDefinition = {
+  id: 'dracula',
+  name: 'Dracula 霓虹',
+  tokens: {
+    light: {
+      'c-primary': '189, 147, 249', // Purple
+      'c-primary-light': '255, 121, 198', // Pink
+      'c-primary-dark': '139, 233, 253', // Cyan
+      'c-muted': '98, 114, 164', // Comment
+      'bg': '#282a36', // Background
+      'fg': '#f8f8f2', // Foreground
+      'border': '#6272a4',
+      'radius': '8px',
+      'bg-pattern': 'none',
+      'card-shadow': '0 8px 32px rgba(0, 0, 0, 0.5)',
+      'btn-shadow': '0 4px 12px rgba(189, 147, 249, 0.4)',
+      'font-heading': '"Zhi Mang Xing", "Ma Shan Zheng", "STKaiti", "KaiTi", cursive',
+      'c-surface': '68, 71, 90', // Current Line
+      'c-text-primary': '248, 248, 242',
+      'border-width': '2px',
+      'font-body': 'system-ui, -apple-system, sans-serif',
+      'font-display': '"Zhi Mang Xing", "Ma Shan Zheng", "STKaiti", "KaiTi", cursive',
+      'radius-sm': '4px',
+      'radius-md': '8px',
+      'radius-lg': '12px',
+      'shadow-glow': '0 0 10px rgba(189, 147, 249, 0.5)',
+      'logo-text': '#ff79c6',
+      'logo-font': '"Zhi Mang Xing", "Ma Shan Zheng", "STKaiti", "KaiTi", cursive',
+      'logo-glow': '0 0 10px #ff79c6, 0 0 20px #bd93f9',
+      'footer-text': 'rgba(98, 114, 164, 1)',
+      'progress-bg': 'linear-gradient(90deg, #ff79c6, #bd93f9, #8be9fd, #50fa7b, #f1fa8c, #ffb86c, #ff5555)',
+      'progress-animation': 'progress-rainbow 3s linear infinite'
+    },
+    dark: {
+      'c-primary': '189, 147, 249',
+      'c-primary-light': '255, 121, 198',
+      'c-primary-dark': '139, 233, 253',
+      'c-muted': '98, 114, 164',
+      'bg': '#282a36',
+      'fg': '#f8f8f2',
+      'border': '#6272a4',
+      'radius': '8px',
+      'bg-pattern': 'none',
+      'card-shadow': '0 8px 32px rgba(0, 0, 0, 0.5)',
+      'btn-shadow': '0 4px 12px rgba(189, 147, 249, 0.4)',
+      'font-heading': '"Zhi Mang Xing", "Ma Shan Zheng", "STKaiti", "KaiTi", cursive',
+      'c-surface': '68, 71, 90',
+      'c-text-primary': '248, 248, 242',
+      'border-width': '2px',
+      'font-body': 'system-ui, -apple-system, sans-serif',
+      'font-display': '"Zhi Mang Xing", "Ma Shan Zheng", "STKaiti", "KaiTi", cursive',
+      'radius-sm': '4px',
+      'radius-md': '8px',
+      'radius-lg': '12px',
+      'shadow-glow': '0 0 10px rgba(189, 147, 249, 0.5)',
+      'logo-text': '#ff79c6',
+      'logo-font': '"Zhi Mang Xing", "Ma Shan Zheng", "STKaiti", "KaiTi", cursive',
+      'logo-glow': '0 0 10px #ff79c6, 0 0 20px #bd93f9',
+      'footer-text': 'rgba(98, 114, 164, 1)',
+      'progress-bg': 'linear-gradient(90deg, #ff79c6, #bd93f9, #8be9fd, #50fa7b, #f1fa8c, #ffb86c, #ff5555)',
+      'progress-animation': 'progress-rainbow 3s linear infinite'
+    }
+  }
+}
+
+export const themeGithub: ThemeDefinition = {
+  id: 'github',
+  name: 'Github 经典',
+  tokens: {
+    light: {
+      'c-primary': '9, 105, 218', // Github blue
+      'c-primary-light': '84, 174, 255',
+      'c-primary-dark': '5, 80, 174',
+      'c-muted': '101, 109, 118',
+      'bg': '#ffffff',
+      'fg': '#1f2328',
+      'border': '#d0d7de',
+      'radius': '6px',
+      'bg-pattern': 'none',
+      'card-shadow': '0 1px 3px rgba(31,35,40,0.12), 0 8px 24px rgba(66,74,83,0.12)',
+      'btn-shadow': '0 1px 0 rgba(31,35,40,0.04)',
+      'font-heading': 'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace',
+      'c-surface': '246, 248, 250',
+      'c-text-primary': '31, 35, 40',
+      'border-width': '1px',
+      'font-body': 'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace',
+      'font-display': 'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace',
+      'radius-sm': '4px',
+      'radius-md': '6px',
+      'radius-lg': '8px',
+      'shadow-glow': 'none',
+      'logo-text': '#1f2328',
+      'logo-font': 'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace',
+      'footer-text': 'rgba(101, 109, 118, 1)',
+      'progress-bg': 'repeating-linear-gradient(90deg, #40c463, #40c463 12px, transparent 12px, transparent 16px)',
+      'progress-animation': 'none'
+    },
+    dark: {
+      'c-primary': '88, 166, 255',
+      'c-primary-light': '121, 192, 255',
+      'c-primary-dark': '56, 139, 253',
+      'c-muted': '139, 148, 158',
+      'bg': '#0d1117',
+      'fg': '#e6edf3',
+      'border': '#30363d',
+      'radius': '6px',
+      'bg-pattern': 'none',
+      'card-shadow': '0 0 0 1px #30363d, 0 8px 24px rgba(1,4,9,0.8)',
+      'btn-shadow': '0 0 0 1px #30363d',
+      'font-heading': 'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace',
+      'c-surface': '22, 27, 34',
+      'c-text-primary': '230, 237, 243',
+      'border-width': '1px',
+      'font-body': 'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace',
+      'font-display': 'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace',
+      'radius-sm': '4px',
+      'radius-md': '6px',
+      'radius-lg': '8px',
+      'shadow-glow': 'none',
+      'logo-text': '#e6edf3',
+      'logo-font': 'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace',
+      'footer-text': 'rgba(139, 148, 158, 1)',
+      'progress-bg': 'repeating-linear-gradient(90deg, #3fb950, #3fb950 12px, transparent 12px, transparent 16px)',
+      'progress-animation': 'none'
     }
   }
 }
